@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    // "allowJs": true,
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
@@ -14,6 +15,7 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "ignoreDeprecations": "6.0"
   }
 }

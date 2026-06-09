@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  ignorePatterns: ["package.json"],
+  ignorePatterns: ["package.json", "jsconfig.json"],
   rules: {
     'vue/attributes-order': ['error', {
       // order: [

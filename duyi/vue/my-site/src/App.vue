@@ -7,7 +7,7 @@
         </div>
       </template>
       <div class="main">
-        中间区域
+        <RouterView />
       </div>
     </Layout>
   </div>
@@ -28,7 +28,6 @@ export default {
 
 #app {
   .self-fill(fixed);
-  background: #cec;
 }
 
 .sidebar {

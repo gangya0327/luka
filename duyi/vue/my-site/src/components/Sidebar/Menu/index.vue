@@ -1,11 +1,14 @@
 <template>
   <div class="menu-container">
-    <a v-for="(item, index) in menus" :key="index" :href="item.link" :class="{ selected: isSelected(item) }">
+    <RouterLink
+      v-for="(item, index) in menus" :key="index" :exact="item.exact" active-class="selected"
+      exact-active-class="" :to="item.link"
+    >
       <div class="icon">
         <Icon :type="item.icon" :size="20" />
       </div>
       <span>{{ item.title }}</span>
-    </a>
+    </RouterLink>
   </div>
 </template>
 
@@ -20,43 +23,48 @@ export default {
         {
           link: '/',
           title: '首页',
-          icon: 'icon-home'
+          icon: 'icon-home',
+          exact: true // 判断是否精确匹配
         },
         {
           link: '/blog',
           title: '博客',
           icon: 'icon-content',
-          startWith: true // 判断是否以 blog 开头
+          // startsWith: true // 判断是否以 blog 开头
+          exact: false // 判断是否精确匹配
         },
         {
           link: '/about',
           title: '关于',
-          icon: 'icon-personal'
+          icon: 'icon-personal',
+          exact: true // 判断是否精确匹配
         },
         {
           link: '/project',
           title: '项目',
-          icon: 'icon-pay'
+          icon: 'icon-pay',
+          exact: true // 判断是否精确匹配
         },
         {
           link: '/message',
           title: '留言板',
-          icon: 'icon-chat'
+          icon: 'icon-chat',
+          exact: true // 判断是否精确匹配
         },
       ]
     }
   },
   methods: {
-    isSelected(item) {
-      const link = item.link.toLowerCase()
-      const pathname = location.pathname.toLowerCase()
-      if (item.startWith) {
-        return pathname.startsWith(link)
-      }
-      else {
-        return pathname === link
-      }
-    }
+    // isSelected(item) {
+    //   const link = item.link.toLowerCase()
+    //   const pathname = location.pathname.toLowerCase()
+    //   if (item.startWith) {
+    //     return pathname.startsWith(link)
+    //   }
+    //   else {
+    //     return pathname === link
+    //   }
+    // }
   }
 }
 </script>
@@ -76,7 +84,7 @@ export default {
     cursor: pointer;
 
     &.selected {
-      background: darken(@word, 8%);
+      background: darken(@word, 3%);
     }
 
     .icon {
