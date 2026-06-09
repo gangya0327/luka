@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-container">
-    <Avatar :url="require('@/assets/avatar.png')" :width="100" :height="100" />
+    <Avatar :url="require('@/assets/avatar.png')" :width="160" :height="160" />
     <h2 class="title">
       欢迎来到我的空间
     </h2>
@@ -44,7 +44,7 @@ export default {
   overflow-y: auto;
 
   .avatar-container {
-    margin: 0 auto;
+    margin: 20px auto;
   }
 
   .footer {

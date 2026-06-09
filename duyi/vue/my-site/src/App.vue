@@ -1,22 +1,38 @@
 <template>
   <div id="app">
-    <Avatar :url="require('./assets/avatar.png')" :width="300" :height="300" />
-    <Icon type="icon-home" />
-    <Icon type="icon-collection" />
+    <Layout>
+      <template slot="left">
+        <div class="sidebar">
+          <Sidebar />
+        </div>
+      </template>
+      <div class="main">
+        中间区域
+      </div>
+    </Layout>
   </div>
 </template>
 
 <script>
-import Avatar from './components/Avatar'
-import Icon from './components/Icon'
+import Sidebar from './components/Sidebar'
+import Layout from './layout'
 
 export default {
   name: 'App',
-
-  components: {
-    Avatar,
-    Icon,
-  },
-
+  components: { Sidebar, Layout, },
 }
 </script>
+
+<style lang="less" scoped>
+@import '~@/styles/mixin.less';
+
+#app {
+  .self-fill(fixed);
+  background: #cec;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+}
+</style>

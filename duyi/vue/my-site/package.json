@@ -10,7 +10,9 @@
     "test:imageLoader": "vue serve ./src/components/ImageLoader/test.vue",
     "test:contact": "vue serve ./src/components/Sidebar/Contact/test.vue",
     "test:menu": "vue serve ./src/components/Sidebar/Menu/test.vue",
-    "test:sidebar": "vue serve ./src/components/Sidebar/test.vue"
+    "test:sidebar": "vue serve ./src/components/Sidebar/test.vue",
+    "test:message": "vue serve ./src/components/Message/test.vue",
+    "test:layout": "vue serve ./src/layout/test.vue"
   },
   "dependencies": {
     "core-js": "^3.8.3",

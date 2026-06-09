@@ -5,7 +5,7 @@
         <div class="icon">
           <Icon type="icon-friends_add" :size="24" />
         </div>
-        <span>yingml</span>
+        <span>yingmenglin</span>
       </a>
       <div class="pop">
         <img src="https://inews.gtimg.com/news_bt/OQoIp8QUTCBE22bGHbx42TiBAAZzg3HODrYc1658W7fC8AA/0" alt="">
