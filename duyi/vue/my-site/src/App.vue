@@ -6,9 +6,7 @@
           <Sidebar />
         </div>
       </template>
-      <div class="main">
-        <RouterView />
-      </div>
+      <RouterView />
     </Layout>
   </div>
 </template>
