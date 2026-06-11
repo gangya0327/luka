@@ -17,7 +17,7 @@ export default function (options = {}) {
   div.innerHTML = `<span class="${styles.icon}">${iconDom.outerHTML}</span><div>${content}</div>`
   div.className = `${styles.message} ${styles['message-' + type]}`
 
-  if (getComputedStyle(container).position === 'static') {
+  if (options.container && getComputedStyle(container).position === 'static') {
     container.style.position = 'relative'
   }
 

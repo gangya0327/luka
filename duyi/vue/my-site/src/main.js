@@ -33,6 +33,9 @@ import showMessage from './utils/showMessage.js'
 Vue.prototype.$showMessage = showMessage
 // showMessage('aaa')
 
+import '@/mock'
+import '@/api/banner.js'
+
 new Vue({
   router,
   render: h => h(App),
