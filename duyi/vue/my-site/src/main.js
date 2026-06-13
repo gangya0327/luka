@@ -29,10 +29,13 @@ import router from './router'
 //   console.log('hello')
 // }
 
-import showMessage from './utils/showMessage.js'
+import showMessage from './utils/showMessage'
 Vue.prototype.$showMessage = showMessage
 
 import '@/mock'
+
+import vLoading from '@/directive/loading'
+Vue.directive('loading', vLoading)
 
 new Vue({
   router,

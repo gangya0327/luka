@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="home-container" @wheel="handleWheel">
+  <div ref="container" v-loading="isLoading" class="home-container" @wheel="handleWheel">
     <ul class="carousel-container" :style="{ marginTop: marginTop }" @transitionend="handleTransitionend">
       <li v-for="item in bannerList" :key="item.id">
         <CarouselItem :carousel="item" />
@@ -31,6 +31,7 @@ export default {
       index: 0, // 当前轮播图索引
       containerHeight: 0, // 轮播图容器高度
       isScrolling: false, // 是否正在滚动
+      isLoading: true,
     }
   },
   computed: {
@@ -42,8 +43,8 @@ export default {
     this.containerHeight = this.$refs.container.clientHeight
     window.addEventListener('resize', this.handleResize)
     getBannerList().then(res => {
-      console.log(res)
       this.bannerList = res.data
+      this.isLoading = false
     })
   },
   destroyed() {
