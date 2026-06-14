@@ -2,12 +2,12 @@
   <div ref="container" class="carousel-item-container" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
     <div ref="image" class="carousel-img" :style="imagePosition">
       <ImageLoader :src="carousel.bigImg" :placeholder="carousel.midImg" @load="showWord" />
-      <div ref="title" class="title">
-        {{ carousel.title }}
-      </div>
-      <div ref="desc" class="desc">
-        {{ carousel.description }}
-      </div>
+    </div>
+    <div ref="title" class="title">
+      {{ carousel.title }}
+    </div>
+    <div ref="desc" class="desc">
+      {{ carousel.description }}
     </div>
   </div>
 </template>

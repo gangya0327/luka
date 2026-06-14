@@ -1,7 +1,7 @@
 <template>
   <div ref="container" v-loading="isLoading" class="home-container" @wheel="handleWheel">
     <ul class="carousel-container" :style="{ marginTop: marginTop }" @transitionend="handleTransitionend">
-      <li v-for="item in bannerList" :key="item.id">
+      <li v-for="item in data" :key="item.id">
         <CarouselItem :carousel="item" />
       </li>
     </ul>
@@ -9,11 +9,11 @@
     <div v-show="index > 0" class="icon icon-up" @click="switchTo(index - 1)">
       <Icon type="icon-up" />
     </div>
-    <div v-show="index < bannerList.length - 1" class="icon icon-down" @click="switchTo(index + 1)">
+    <div v-show="index < data.length - 1" class="icon icon-down" @click="switchTo(index + 1)">
       <Icon type="icon-under" />
     </div>
     <ul class="indicator">
-      <li v-for="(item, i) in bannerList" :key="i" :class="{ active: index === i }" @click="switchTo(i)" />
+      <li v-for="(item, i) in data" :key="i" :class="{ active: index === i }" @click="switchTo(i)" />
     </ul>
   </div>
 </template>
@@ -22,16 +22,16 @@
 import { getBannerList } from '@/api/banner'
 import CarouselItem from './components/CarouselItem.vue';
 import Icon from '@/components/Icon'
+import fetchData from '@/mixins/fetchData'
 
 export default {
   components: { CarouselItem, Icon },
+  mixins: [fetchData([])],
   data() {
     return {
-      bannerList: [],
       index: 0, // 当前轮播图索引
       containerHeight: 0, // 轮播图容器高度
       isScrolling: false, // 是否正在滚动
-      isLoading: true,
     }
   },
   computed: {
@@ -42,15 +42,14 @@ export default {
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight
     window.addEventListener('resize', this.handleResize)
-    getBannerList().then(res => {
-      this.bannerList = res.data
-      this.isLoading = false
-    })
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    async fetchData() {
+      return await getBannerList()
+    },
     switchTo(i) {
       this.index = i
     },
@@ -59,7 +58,7 @@ export default {
       if (e.deltaY < -5 && this.index > 0) {
         this.isScrolling = true
         this.index--
-      } else if (e.deltaY > 5 && this.index < this.bannerList.length - 1) {
+      } else if (e.deltaY > 5 && this.index < this.data.length - 1) {
         this.isScrolling = true
         this.index++
       }
