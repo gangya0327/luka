@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar'
-import Layout from './layout'
+import Sidebar from '@/components/Sidebar'
+import Layout from '@/layout'
 
 export default {
   name: 'App',
