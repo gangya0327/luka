@@ -7,7 +7,7 @@ export default function (defaultValue = null) {
       }
     },
     async created() {
-      this.data = []
+      this.data = defaultValue
       this.data = await this.fetchData()
       this.isLoading = false
     }

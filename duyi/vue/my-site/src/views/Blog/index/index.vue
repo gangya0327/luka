@@ -8,10 +8,10 @@
 </template>
 
 <script>
-// import RightList from './components/RightList.vue';
 import Layout from '@/layout'
 import BlogList from './components/BlogList.vue'
 import BlogCategory from './components/BlogCategory.vue'
+    // https://juejin.cn/post/7573694361474629659
 
 export default {
   components: { Layout, BlogList, BlogCategory },
@@ -58,9 +58,5 @@ export default {
       ]
     }
   },
-  mounted() {
-    console.log(this.$route)
-    // https://juejin.cn/post/7573694361474629659
-  }
 }
 </script>

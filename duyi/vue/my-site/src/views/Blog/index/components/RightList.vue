@@ -45,7 +45,7 @@ export default {
       display: flex;
 
       .name {
-        width: 50px;
+        margin-right: 20px;
       }
 
       .sub {
