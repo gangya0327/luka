@@ -4,9 +4,9 @@ import qs from 'querystring'
 Mock.mock('/api/blog/category', 'get', {
   code: '0',
   msg: '请求成功',
-  'data|10-20': [
+  'data|5-10': [
     {
-      'id+1': 1,
+      'id|+1': 1,
       name: '分类@id',
       'articleCount|0-30': 0,
       'order|+1': 1,
@@ -16,7 +16,6 @@ Mock.mock('/api/blog/category', 'get', {
 
 Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', function (options) {
   const query = qs.parse(options.url)
-  console.log('query ->', query)
   return Mock.mock({
     code: '0',
     msg: '请求成功',
@@ -28,7 +27,7 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', function (options) {
         description: '@cparagraph',
         category: {
           "id|1-10": 0,
-          name: '分类 @id'
+          name: '分类@id'
         },
         'scanNumber|0-500': 10,
         'commentNumber|0-200': 10,

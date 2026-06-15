@@ -32,7 +32,6 @@ export default {
   computed: {
     // 总页数
     totalPage() {
-      console.log('Math.ceil(this.total / this.limit) ->', Math.ceil(this.total / this.limit))
       return Math.ceil(this.total / this.limit)
     },
     // 最小页码

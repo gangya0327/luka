@@ -1,7 +1,10 @@
 <template>
   <ul class="right-list-container">
     <li v-for="(item, index) in list" :key="index" @click="handleItem(item)">
-      <span :class="{ active: item.selected }">{{ item.name }}</span>
+      <div :class="{ active: item.selected }" class="info">
+        <span class="name">{{ item.name }}</span>
+        <span v-if="item.sub" class="sub">{{ item.sub }}</span>
+      </div>
       <RightList :list="item.children" />
     </li>
   </ul>
@@ -14,6 +17,12 @@ export default {
     list: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    handleItem(item) {
+      if (item.selected) return
+      this.$emit('select', item)
     }
   }
 }
@@ -30,10 +39,28 @@ export default {
   li {
     min-height: 40px;
     line-height: 40px;
+    cursor: pointer;
 
-    .active {
-      color: @primary;
-      font-weight: bold;
+    .info {
+      display: flex;
+
+      .name {
+        width: 50px;
+      }
+
+      .sub {
+        color: @gray;
+        font-size: 16px;
+      }
+
+      &.active {
+        color: @primary;
+        font-weight: bold;
+
+        .sub {
+          color: @primary;
+        }
+      }
     }
   }
 }
