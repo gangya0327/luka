@@ -1,18 +1,18 @@
 <template>
   <div class="test-container">
-    <Pager :current="current" :total="125" @pageChange="handlePageChange" />
-    <Pager :current="1" :total="80" />
-    <Pager :current="13" :total="200" :page-count="13" />
-    <Pager :current="6" :total="62" />
+    <Pagination :current="current" :total="125" @pageChange="handlePageChange" />
+    <Pagination :current="1" :total="80" />
+    <Pagination :current="13" :total="200" :page-count="13" />
+    <Pagination :current="6" :total="62" />
   </div>
 </template>
 
 <script>
-import Pager from './'
+import Pagination from '.'
 
 export default {
   components: {
-    Pager
+    Pagination
   },
   data() {
     return {

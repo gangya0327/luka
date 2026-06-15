@@ -23,7 +23,7 @@
         </div>
       </li>
     </ul>
-    <Pager
+    <Pagination
       :current="routeInfo.page" :total="data.total" :limit="routeInfo.limit" :page-count="5"
       @pageChange="handlePageChange"
     />
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import Pager from '@/components/Pager'
+import Pagination from '@/components/Pagination'
 import fetchData from '@/mixins/fetchData'
 import { getBlogList } from '@/api/blog'
 
 export default {
-  components: { Pager },
+  components: { Pagination },
   mixins: [fetchData({})],
   computed: {
     routeInfo() {

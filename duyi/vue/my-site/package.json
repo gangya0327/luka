@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:pager": "vue serve ./src/components/Pager/test.vue",
+    "test:pager": "vue serve ./src/components/Pagination/test.vue",
     "test:empty": "vue serve ./src/components/Empty/test.vue",
     "test:imageLoader": "vue serve ./src/components/ImageLoader/test.vue",
     "test:contact": "vue serve ./src/components/Sidebar/Contact/test.vue",
