@@ -1,5 +1,5 @@
 <template>
-  <div v-if="totalPage > -1" class="pager-container">
+  <div v-if="totalPage > 1" class="pager-container">
     <a :class="{ disabled: current === 1 }" @click="handleClick(1)">|&lt;&lt;</a>
     <a :class="{ disabled: current === 1 }" @click="handleClick(current - 1)">&lt;&lt;</a>
     <a v-for="(n, i) in sizes" :key="i" :class="{ active: current === n }" @click="handleClick(n)">{{ n }}</a>
@@ -32,6 +32,7 @@ export default {
   computed: {
     // 总页数
     totalPage() {
+      console.log('Math.ceil(this.total / this.limit) ->', Math.ceil(this.total / this.limit))
       return Math.ceil(this.total / this.limit)
     },
     // 最小页码

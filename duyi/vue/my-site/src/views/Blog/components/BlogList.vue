@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="isLoading" class="blog-list-container">
+  <div ref="container" v-loading="isLoading" class="blog-list-container">
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div v-if="item.thumb" class="thumb">
@@ -23,7 +23,10 @@
         </div>
       </li>
     </ul>
-    <Pager />
+    <Pager
+      :current="routeInfo.page" :total="data.total" :limit="routeInfo.limit" :page-count="5"
+      @pageChange="handlePageChange"
+    />
   </div>
 </template>
 
@@ -43,9 +46,29 @@ export default {
       return { categoryId, page, limit }
     },
   },
+  watch: {
+    async $route() {
+      this.isLoading = true
+      this.$refs.container.scrollTop = 0
+      this.data = []
+      this.data = await this.fetchData()
+      this.isLoading = false
+    }
+  },
   methods: {
     async fetchData() {
-      return await getBlogList()
+      return await getBlogList(this.routeInfo.page, this.routeInfo.limit, this.routeInfo.categoryId)
+    },
+    handlePageChange(newPage) {
+      const query = {
+        page: newPage,
+        limit: this.routeInfo.limit
+      }
+      if (this.routeInfo.categoryId === -1) {
+        this.$router.push({ name: 'Blog', query })
+      } else {
+        this.$router.push({ name: 'BlogCategory', query, params: { categoryId: this.routeInfo.categoryId } })
+      }
     }
   }
 }
@@ -58,10 +81,11 @@ export default {
   line-height: 1.7;
   position: relative;
   padding: 20px;
-  overflow-y: hidden;
+  overflow-y: auto;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 
   ul {
     list-style: none;
@@ -80,7 +104,7 @@ export default {
 
       img {
         display: block;
-        min-width: 200px;
+        min-width: 240px;
         border-radius: 5px;
       }
     }

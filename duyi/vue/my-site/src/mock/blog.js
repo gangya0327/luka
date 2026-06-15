@@ -27,12 +27,12 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', function (options) {
         title: '@ctitle(1, 20)',
         description: '@cparagraph',
         category: {
-          "id|1-10": '0',
-          name: '分类@id'
+          "id|1-10": 0,
+          name: '分类 @id'
         },
         'scanNumber|0-500': 10,
         'commentNumber|0-200': 10,
-        'thumb|1': [Mock.Random.image('300x200', '#efc', '#fcf', 'random-image'), null],
+        thumb: [Mock.Random.image('240x160', '#efc', '#fcf', 'random-image'), null],
         createDate: '@datetime',
       }]
     }

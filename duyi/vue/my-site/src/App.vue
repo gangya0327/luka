@@ -25,7 +25,7 @@ export default {
 @import '~@/styles/mixin.less';
 
 #app {
-  .self-fill(fixed);
+  .self-fill();
 }
 
 .sidebar {

@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <h1> 文章 分类：{{ $route.params.categoryId }}</h1>
-    <!-- <RightList :list="[]" /> -->
-    <Layout>
-      <BlogList />
-      <template #right>
-        <BlogCategory />
-      </template>
-    </Layout>
-  </div>
+  <Layout>
+    <BlogList />
+    <template #right>
+      <BlogCategory />
+    </template>
+  </Layout>
 </template>
 
 <script>
@@ -72,5 +68,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped></style>

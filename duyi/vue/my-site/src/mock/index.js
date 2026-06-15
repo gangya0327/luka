@@ -4,5 +4,5 @@ import './banner'
 import './blog'
 
 Mock.setup({
-  timeout: '400-1000'
+  timeout: '500-1200'
 })
