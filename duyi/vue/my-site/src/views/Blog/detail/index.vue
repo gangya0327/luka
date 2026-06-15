@@ -45,6 +45,7 @@ export default {
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .toc-container {

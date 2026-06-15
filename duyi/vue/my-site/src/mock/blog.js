@@ -55,44 +55,32 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
     toc: [
       {
         name: '先搞清楚：2025 的前端到底在变什么？', anchor: 'heading-1', selected: false, children: [
-          { name: '框架红海：从“会用”到“用得值”', selected: false },
-          { name: '工具有 AI，开发方式也在变', selected: false },
+          { name: '框架红海：从“会用”到“用得值”', anchor: 'heading-2', selected: false },
+          { name: '工具有 AI，开发方式也在变', anchor: 'heading-3', selected: false },
           {
-            name: '业务侧：前端不再是“画界面”，而是“做体验 + 做增长”', selected: false, children: [
-              { name: 'B 端产品', selected: false },
-              { name: 'C 端产品', selected: true },
-              { name: '跨平台', selected: false },
-            ]
+            name: '业务侧：前端不再是“画界面”，而是“做体验 + 做增长”', anchor: 'heading-4', selected: false
           },
         ]
       },
       {
-        name: '别再死磕框架 API：2025 的前端核心能力长什么样', selected: false, children: [
-          { name: '基石能力：Web 原生三件套，得真的吃透', selected: false },
-          { name: '工程能力：从“会用脚手架”到“能看懂和调整工程栈”', selected: false },
-          { name: '跨端和运行时：不只会“写 Web 页”', selected: false },
-          { name: '数据和状态：从“会用 Vuex/Redux”到“能设计状态模型”', selected: false },
-          { name: '性能、稳定性、可观测性：高级前端的硬指标', selected: false },
+        name: '别再死磕框架 API：2025 的前端核心能力长什么样', anchor: 'heading-5', selected: false, children: [
+          { name: '基石能力：Web 原生三件套，得真的吃透', anchor: 'heading-6', selected: false },
+          { name: '工程能力：从“会用脚手架”到“能看懂和调整工程栈”', anchor: 'heading-7', selected: false },
+          { name: '跨端和运行时：不只会“写 Web 页”', anchor: 'heading-8', selected: false },
+          { name: '数据和状态：从“会用 Vuex/Redux”到“能设计状态模型”', anchor: 'heading-9', selected: false },
+          { name: '性能、稳定性、可观测性：高级前端的硬指标', anchor: 'heading-10', selected: false },
         ]
       },
       {
-        name: '路线图别再按“框架学习顺序”排了，按角色来选', selected: false, children: [
-          { name: '初中级：从“会用”到“能独立负责一个功能”', selected: false },
-          { name: '进阶：从“功能前端”到“工程前端 + 业务前端”', selected: false },
-          { name: '高级/资深：从“高级前端”到“前端技术负责人”', selected: false },
-        ]
-      },
-      { name: '2025 年不要再犯的几个错误', selected: false },
-      {
-        name: '一个现实点的建议：给自己的 2025 做个“年度规划', selected: false, children: [
-          { name: '框架红海：从“会用”到“用得值”', selected: false },
-          { name: '工具有 AI，开发方式也在变', selected: false },
-          { name: '业务侧：前端不再是“画界面”，而是“做体验 + 做增长”', selected: false },
+        name: '路线图别再按“框架学习顺序”排了，按角色来选', anchor: 'heading-12', selected: false, children: [
+          { name: '初中级：从“会用”到“能独立负责一个功能”', anchor: 'heading-13', selected: false },
+          { name: '进阶：从“功能前端”到“工程前端 + 业务前端”', anchor: 'heading-14', selected: false },
+          { name: '高级/资深：从“高级前端”到“前端技术负责人”', anchor: 'heading-15', selected: false },
         ]
       },
     ],
     thumb: Mock.Random.image('240x160', '#cec', '#9af', 'random-image'),
-    htmlContent: `<div class="article-viewer markdown-body result"><h2 data-id="heading-0">先说结论：</h2>
+    htmlContent: `<div class="article-viewer markdown-body result"><h2 id="heading-0">先说结论：</h2>
 <p>前端不会凉，但“只会几个框架 API”的前端，确实越来越难混<br>
 这两年“前端要凉了”“全栈替代前端”的声音此起彼伏，本质是门槛重新洗牌：</p>
 <ul>
@@ -101,8 +89,8 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 </ul>
 <p>如果你对“前端的尽头是跑路转管理”已经开始迷茫，那这篇就是给你看的：<strong>别再死磕框架版本号，该更新的是你的技术路线图。</strong></p>
 <hr>
-<h2 data-id="heading-1">一、先搞清楚：2025 的前端到底在变什么？</h2>
-<h3 data-id="heading-2">框架红海：从“会用”到“用得值”</h3>
+<h2 id="heading-1">一、先搞清楚：2025 的前端到底在变什么？</h2>
+<h3 id="heading-2">框架红海：从“会用”到“用得值”</h3>
 <p>React、Vue、Svelte、Solid、Qwik、Next、Nuxt……Meta Framework 一大堆，远远超过岗位需求。<br>
 <strong>现在企业选型更关注：</strong></p>
 <ul>
@@ -118,7 +106,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>以前是“你会 Vue/React 就能干活”，现在是“你要理解框架在整个应用中的角色”。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-3">工具有 AI，开发方式也在变</h3>
+<h3 id="heading-3">工具有 AI，开发方式也在变</h3>
 <p>AI 工具（如 Cursor、GitHub Copilot X）可以显著提速，甚至替代重复劳动。<br>
 <strong>真正拉开差距的变成了：</strong></p>
 <ul>
@@ -130,7 +118,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>AI 不是来抢饭碗，而是逼你从“码农”进化成“架构和决策的人”。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-4">业务侧：前端不再是“画界面”，而是“做体验 + 做增长”</h3>
+<h3 id="heading-4">业务侧：前端不再是“画界面”，而是“做体验 + 做增长”</h3>
 <ul>
 <li><strong>B 端产品</strong>：交互工程师 + 低代码拼装师 + 复杂表单处理专家；</li>
 <li><strong>C 端产品</strong>：与产品运营深度捆绑，懂 A/B 测试、埋点、Funnel 分析、广告投放链路；</li>
@@ -140,8 +128,8 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>那些还在喊“切图仔优化 padding”的岗位确实在消失，但对“懂业务、有数据意识、能搭全链路体验”的前端需求更高。</strong></p>
 </blockquote>
 <hr>
-<h2 data-id="heading-5">二、别再死磕框架 API：2025 的前端核心能力长什么样？</h2>
-<h3 data-id="heading-6">基石能力：Web 原生三件套，得真的吃透</h3>
+<h2 id="heading-5">二、别再死磕框架 API：2025 的前端核心能力长什么样？</h2>
+<h3 id="heading-6">基石能力：Web 原生三件套，得真的吃透</h3>
 <p><strong>重点不是“会用”，而是理解底层原理：</strong></p>
 <ul>
 <li><strong>JS</strong>：事件循环、原型链、Promise 执行模型、ESM 模块化；</li>
@@ -151,7 +139,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>这块扎实了，你在任何框架下都不会慌，也更能看懂“框架为什么这么设计”。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-7">工程能力：从“会用脚手架”到“能看懂和调整工程栈”</h3>
+<h3 id="heading-7">工程能力：从“会用脚手架”到“能看懂和调整工程栈”</h3>
 <p>Vite、Rspack、Turbopack 等工具让工程构建从“黑魔法”变成“可组合拼装件”。<br>
 <strong>你需要：</strong></p>
 <ul>
@@ -163,7 +151,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>如果你在团队里能主动做这些事，别人对你的“级别判断”会明显不一样。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-8">跨端和运行时：不只会“写 Web 页”</h3>
+<h3 id="heading-8">跨端和运行时：不只会“写 Web 页”</h3>
 <p><strong>2025 年前端视角的关键方向：</strong></p>
 <ul>
 <li><strong>小程序/多端框架</strong>（Taro、Uni-app）；</li>
@@ -175,7 +163,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <li>至少深耕一个“跨端主战场”（如 Web + 小程序 或 Web + Flutter）。</li>
 </ul>
 <hr>
-<h3 data-id="heading-9">数据和状态：从“会用 Vuex/Redux”到“能设计状态模型”</h3>
+<h3 id="heading-9">数据和状态：从“会用 Vuex/Redux”到“能设计状态模型”</h3>
 <p>现代前端复杂度 70% 在“数据和状态管理”。<br>
 <strong>进阶点在于：</strong></p>
 <ul>
@@ -186,7 +174,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>当你能把“状态设计清楚”，你在复杂业务团队里会非常吃香。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-10">性能、稳定性、可观测性：高级前端的硬指标</h3>
+<h3 id="heading-10">性能、稳定性、可观测性：高级前端的硬指标</h3>
 <p><strong>你需要系统性回答问题，而不是“瞎猜”：</strong></p>
 <ul>
 <li><strong>性能优化</strong>：首屏加载（资源拆分、CDN）、运行时优化（减少重排、虚拟列表）；</li>
@@ -197,15 +185,15 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <p><strong>这块做得好的人往往是技术骨干，且很难被低代码或 AI 直接替代。</strong></p>
 </blockquote>
 <hr>
-<h3 data-id="heading-11">AI 时代的前端：不是“写 AI”，而是“让 AI 真正跑进产品”</h3>
+<h3 id="heading-11">AI 时代的前端：不是“写 AI”，而是“让 AI 真正跑进产品”</h3>
 <p><strong>你需要驾驭：</strong></p>
 <ul>
 <li><strong>基础能力</strong>：调用 AI 平台 API（流式返回处理、增量渲染）；</li>
 <li><strong>产品思维</strong>：哪些场景适合 AI（智能搜索、文档问答）；如何做权限控制、错误兜底。</li>
 </ul>
 <hr>
-<h2 data-id="heading-12">三、路线图别再按“框架学习顺序”排了，按角色来选</h2>
-<h3 data-id="heading-13">初中级：从“会用”到“能独立负责一个功能”</h3>
+<h2 id="heading-12">三、路线图别再按“框架学习顺序”排了，按角色来选</h2>
+<h3 id="heading-13">初中级：从“会用”到“能独立负责一个功能”</h3>
 <p><strong>目标：</strong></p>
 <ul>
 <li>独立完成中等复杂度模块（登录、权限、表单、列表分页）。</li>
@@ -217,7 +205,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <li>搭建 eslint + prettier + git hooks 的开发习惯。</li>
 </ul>
 <hr>
-<h3 data-id="heading-14">进阶：从“功能前端”到“工程前端 + 业务前端”</h3>
+<h3 id="heading-14">进阶：从“功能前端”到“工程前端 + 业务前端”</h3>
 <p><strong>目标：</strong></p>
 <ul>
 <li>优化项目、推进基础设施、给后端/产品提技术方案。</li>
@@ -229,7 +217,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <li>引入 AI 能力（如智能搜索、工单回复建议）。</li>
 </ul>
 <hr>
-<h3 data-id="heading-15">高级/资深：从“高级前端”到“前端技术负责人”</h3>
+<h3 id="heading-15">高级/资深：从“高级前端”到“前端技术负责人”</h3>
 <p><strong>目标：</strong></p>
 <ul>
 <li>设计技术体系、推动长期价值。</li>
@@ -241,7 +229,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <li>评估 AI/低代码/新框架的引入价值。</li>
 </ul>
 <hr>
-<h2 data-id="heading-16">四、2025 年不要再犯的几个错误</h2>
+<h2 id="heading-16">四、2025 年不要再犯的几个错误</h2>
 <ol>
 <li>
 <p><strong>只跟着热点学框架，不做项目和抽象</strong></p>
@@ -269,7 +257,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 </li>
 </ol>
 <hr>
-<h2 data-id="heading-17">五、一个现实点的建议：给自己的 2025 做个“年度规划”</h2>
+<h2 id="heading-17">五、一个现实点的建议：给自己的 2025 做个“年度规划”</h2>
 <p><strong>Q1：</strong></p>
 <ul>
 <li>选定主技术栈（React+Next 或 Vue+Nuxt）；</li>
@@ -288,7 +276,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
 <li>输出和沉淀（写 3~5 篇技术文章、踩坑复盘）。</li>
 </ul>
 <hr>
-<h2 data-id="heading-18">最后：别问前端凉没凉，先问问自己“是不是还停在 2018 年的玩法”</h2>
+<h2 id="heading-18">最后：别问前端凉没凉，先问问自己“是不是还停在 2018 年的玩法”</h2>
 <ul>
 <li>如果你还把“熟练掌握 Vue/React”当成简历亮点，那确实会焦虑；</li>
 <li>但如果你能说清楚：
