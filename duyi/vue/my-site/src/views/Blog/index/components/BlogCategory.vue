@@ -53,7 +53,7 @@ export default {
 @import '~@/styles/variables.less';
 
 .blog-category-container {
-  width: 300px;
+  width: 200px;
   height: 100%;
   padding: 20px;
   box-sizing: border-box;

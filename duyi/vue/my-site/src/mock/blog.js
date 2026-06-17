@@ -1,6 +1,7 @@
 import Mock from 'mockjs'
 import qs from 'querystring'
 
+// 文章分类
 Mock.mock('/api/blog/category', 'get', {
   code: '0',
   msg: '请求成功',
@@ -14,6 +15,7 @@ Mock.mock('/api/blog/category', 'get', {
   ]
 })
 
+// 文章列表
 Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', function (options) {
   const query = qs.parse(options.url)
   return Mock.mock({
@@ -38,7 +40,8 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', function (options) {
   })
 })
 
-Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
+// 文章详情
+Mock.mock(/^\/api\/blog\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/, 'get', {
   code: '0',
   msg: '请求成功',
   data: {
@@ -292,6 +295,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
   }
 })
 
+// 添加评论
 Mock.mock('/api/blog/comment', 'post', {
   code: '0',
   msg: '请求成功',
@@ -309,19 +313,20 @@ Mock.mock('/api/blog/comment', 'post', {
   }
 })
 
-Mock.mock(/\/ap\/blog\/comment\/?(\?.+)?$/, 'get', function (options) {
+// 评论列表
+Mock.mock(/\/api\/blog\/comment\/?(\?.+)?$/, 'get', function (options) {
   const query = qs.parse(options.url)
   return Mock.mock({
     code: '0',
     msg: '请求成功',
     data: {
-      'total|200-50': 0,
+      'total|200-500': 0,
       [`rows|${query.limit || 10}`]: [{
         id: '@guid',
         nickname: '@cname',
-        content: '@cparagraph(10, 20)',
+        content: '@cparagraph(2, 10)',
         createDate: '@datetime',
-        'avatar|1-10': [
+        'avatar|1': [
           'https://picsum.photos/id/110/300/240',
           'https://picsum.photos/id/111/300/240',
           'https://picsum.photos/id/112/300/240',

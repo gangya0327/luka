@@ -46,3 +46,8 @@ export default {
   margin: 2em 0;
 }
 </style>
+
+
+<style>
+@import './detail.less';
+</style>

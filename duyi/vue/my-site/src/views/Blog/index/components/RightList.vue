@@ -1,11 +1,11 @@
 <template>
   <ul class="right-list-container">
-    <li v-for="(item, index) in list" :key="index" @click="handleItem(item)">
-      <div :class="{ active: item.selected }" class="info">
+    <li v-for="(item, index) in list" :key="index">
+      <div :class="{ active: item.selected }" class="info" @click="handleItem(item)">
         <span class="name">{{ item.name }}</span>
         <span v-if="item.sub" class="sub">{{ item.sub }}</span>
       </div>
-      <RightList :list="item.children" />
+      <RightList :list="item.children" @select="handleItem" />
     </li>
   </ul>
 </template>
@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     handleItem(item) {
+      console.log('item ->', item.name)
       if (item.selected) return
       this.$emit('select', item)
     }

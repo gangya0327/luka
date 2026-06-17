@@ -2,6 +2,7 @@
   <Layout>
     <div v-loading="isLoading" class="main-container">
       <BlogDetail :blog="data" />
+      <BlogComment />
     </div>
     <template #right>
       <div v-loading="isLoading" class="toc-container">
@@ -17,9 +18,10 @@ import fetchData from '@/mixins/fetchData'
 import Layout from '@/layout'
 import BlogDetail from './components/BlogDetail.vue'
 import BlogToc from './components/BlogToc.vue'
+import BlogComment from './components/BlogComment.vue'
 
 export default {
-  components: { Layout, BlogDetail, BlogToc },
+  components: { Layout, BlogDetail, BlogToc, BlogComment },
   mixins: [fetchData({})],
   data() {
     return {
@@ -28,7 +30,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      return await getBlog(this.$route.id)
+      return await getBlog(this.$route.params.id)
     },
   }
 }
@@ -49,12 +51,12 @@ export default {
 }
 
 .toc-container {
-  width: 420px;
+  width: 400px;
   height: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
   position: relative;
-  padding: 20px;
-  font-size: 13px;
+  padding: 16px;
+  font-size: 12px;
 }
 </style>

@@ -1,0 +1,50 @@
+<template>
+  <div class="message-area-container">
+    <DataForm />
+    <h3>
+      {{ title }}
+      <span>{{ subTitle }}</span>
+    </h3>
+    <DataList :list="list" />
+    {{ isListLoading }}
+    <div v-loading="isListLoading" class="loading">
+      loading
+    </div>
+  </div>
+</template>
+
+<script>
+import DataForm from './DataForm.vue';
+import DataList from './DataList.vue';
+
+export default {
+  components: { DataForm, DataList },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    subTitle: {
+      type: String,
+      default: ''
+    },
+    list: {
+      type: Array,
+      default: () => []
+    },
+    isListLoading: {  
+      type: Boolean,
+      default: false
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.message-area-container {
+  .loading {
+    position: relative;
+    height: 100px;
+  }
+}
+</style>
