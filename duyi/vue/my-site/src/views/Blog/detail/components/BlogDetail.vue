@@ -4,9 +4,9 @@
     <div class="info">
       <span>日期：{{ blog.createDate }}</span>
       <span>浏览量：{{ blog.scanNumber }}</span>
-      <RouterLink to="">
+      <a href="#data-form-container">
         评论数：{{ blog.commentNumber }}
-      </RouterLink>
+      </a>
       <RouterLink to="">
         {{ blog.category?.name }}
       </RouterLink>

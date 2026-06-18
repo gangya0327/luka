@@ -304,11 +304,17 @@ Mock.mock('/api/blog/comment', 'post', {
     nickname: '@cname',
     content: '@cparagraph(10, 20)',
     createDate: '@datetime',
-    'avatar|1-10': [
+    'avatar|1': [
       'https://picsum.photos/id/110/300/240',
       'https://picsum.photos/id/111/300/240',
       'https://picsum.photos/id/112/300/240',
       'https://picsum.photos/id/113/300/240',
+      'https://picsum.photos/id/114/300/240',
+      'https://picsum.photos/id/115/300/240',
+      'https://picsum.photos/id/116/300/240',
+      'https://picsum.photos/id/117/300/240',
+      'https://picsum.photos/id/118/300/240',
+      'https://picsum.photos/id/119/300/240',
     ]
   }
 })
@@ -331,6 +337,12 @@ Mock.mock(/\/api\/blog\/comment\/?(\?.+)?$/, 'get', function (options) {
           'https://picsum.photos/id/111/300/240',
           'https://picsum.photos/id/112/300/240',
           'https://picsum.photos/id/113/300/240',
+          'https://picsum.photos/id/114/300/240',
+          'https://picsum.photos/id/115/300/240',
+          'https://picsum.photos/id/116/300/240',
+          'https://picsum.photos/id/117/300/240',
+          'https://picsum.photos/id/118/300/240',
+          'https://picsum.photos/id/119/300/240',
         ],
       }]
     }

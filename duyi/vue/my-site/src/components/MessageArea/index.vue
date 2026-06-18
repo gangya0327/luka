@@ -1,15 +1,11 @@
 <template>
   <div class="message-area-container">
-    <DataForm />
+    <DataForm v-on="$listeners" />
     <h3>
-      {{ title }}
-      <span>{{ subTitle }}</span>
+      {{ title }}<span>{{ subTitle }}</span>
     </h3>
     <DataList :list="list" />
-    {{ isListLoading }}
-    <div v-loading="isListLoading" class="loading">
-      loading
-    </div>
+    <div v-loading="isListLoading" class="loading" />
   </div>
 </template>
 
@@ -32,11 +28,11 @@ export default {
       type: Array,
       default: () => []
     },
-    isListLoading: {  
+    isListLoading: {
       type: Boolean,
       default: false
     }
-  }
+  },
 }
 </script>
 
