@@ -7,7 +7,7 @@
       <a href="#data-form-container">
         评论数：{{ blog.commentNumber }}
       </a>
-      <RouterLink to="">
+      <RouterLink class :to="{ name: 'BlogCategory', params: { categoryId: blog.category.id } }">
         {{ blog.category?.name }}
       </RouterLink>
     </div>

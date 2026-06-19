@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div v-loading="isLoading" class="main-container">
+    <div ref="mainContainer" v-loading="isLoading" class="main-container">
       <BlogDetail :blog="data" />
       <BlogComment />
     </div>
@@ -25,13 +25,29 @@ export default {
   mixins: [fetchData({})],
   data() {
     return {
-
+      scrollTop: 0
     }
+  },
+  mounted() {
+    this.$refs.mainContainer.addEventListener('scroll', this.handleScroll)
   },
   methods: {
     async fetchData() {
       return await getBlog(this.$route.params.id)
     },
+    handleScroll() {
+      this.$bus.$emit('mainScroll', this.$refs.mainContainer)
+    }
+  },
+  updated() {
+    const hash = location.hash
+    location.hash = ''
+    setTimeout(() => {
+      location.hash = hash
+    }, 50)
+  },
+  destroyed() {
+    this.$refs.mainContainer?.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>

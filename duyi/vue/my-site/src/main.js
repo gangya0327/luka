@@ -37,6 +37,8 @@ import '@/mock'
 import vLoading from '@/directive/loading'
 Vue.directive('loading', vLoading)
 
+import '@/bus/eventBus.js'
+
 new Vue({
   router,
   render: h => h(App),
