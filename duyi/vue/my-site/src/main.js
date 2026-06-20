@@ -36,6 +36,8 @@ import '@/mock'
 
 import vLoading from '@/directive/loading'
 Vue.directive('loading', vLoading)
+import vLazy from '@/directive/lazy'
+Vue.directive('lazy', vLazy)
 
 import '@/bus/eventBus.js'
 

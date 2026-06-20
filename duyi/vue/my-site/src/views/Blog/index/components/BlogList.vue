@@ -4,7 +4,7 @@
       <li v-for="item in data.rows" :key="item.id">
         <div v-if="item.thumb" class="thumb">
           <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
-            <img :src="item.thumb" alt="bbb" title="ccc">
+            <img v-lazy="item.thumb" :src="item.thumb" alt="bbb" title="ccc">
           </RouterLink>
         </div>
         <div class="main">
