@@ -1,0 +1,52 @@
+<template>
+  <div v-show="show" class="to-top-container" @click="handleTop">
+    top
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: false
+    }
+  },
+  created() {
+    this.$bus.$on('mainScroll', this.handleScroll)
+  },
+  destroyed() {
+    this.$bus.$off('mainScroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll(dom) {
+      if (!dom) {
+        this.show = false
+        return
+      }
+      this.show = dom.scrollTop > 500
+    },
+    handleTop() {
+      this.$bus.$emit('mainScrollTo', 0)
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+@import '~@/styles/variables.less';
+
+.to-top-container {
+  background: @primary;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99;
+  right: 50px;
+  bottom: 50px;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+}
+</style>

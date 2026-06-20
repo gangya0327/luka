@@ -57,7 +57,8 @@ export default {
     handleSelect(item) {
       location.hash = item.anchor
     },
-    setActiveSelect() {
+    setActiveSelect(dom) {
+      if (!dom) return
       this.activeAnchor = ''
       const range = 100
       for (const dom of this.tocDoms) {

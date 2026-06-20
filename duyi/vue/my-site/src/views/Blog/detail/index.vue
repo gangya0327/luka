@@ -29,15 +29,8 @@ export default {
     }
   },
   mounted() {
+    this.$bus.$on('mainScrollTo', this.handleScrollTo)
     this.$refs.mainContainer.addEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    async fetchData() {
-      return await getBlog(this.$route.params.id)
-    },
-    handleScroll() {
-      this.$bus.$emit('mainScroll', this.$refs.mainContainer)
-    }
   },
   updated() {
     const hash = location.hash
@@ -46,9 +39,22 @@ export default {
       location.hash = hash
     }, 50)
   },
-  destroyed() {
-    this.$refs.mainContainer?.removeEventListener('scroll', this.handleScroll)
-  }
+  beforeDestroy() {
+    this.$bus.$emit('mainScroll')
+    this.$refs.mainContainer.removeEventListener('scroll', this.handleScroll)
+    this.$bus.$off('mainScrollTo', this.handleScrollTo)
+  },
+  methods: {
+    async fetchData() {
+      return await getBlog(this.$route.params.id)
+    },
+    handleScroll() {
+      this.$bus.$emit('mainScroll', this.$refs.mainContainer)
+    },
+    handleScrollTo(scrollTop) {
+      this.$refs.mainContainer.scrollTop = scrollTop
+    }
+  },
 }
 </script>
 

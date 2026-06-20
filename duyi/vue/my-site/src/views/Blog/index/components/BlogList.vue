@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" v-loading="isLoading" class="blog-list-container">
+  <div ref="listContainer" v-loading="isLoading" class="blog-list-container">
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div v-if="item.thumb" class="thumb">
@@ -51,11 +51,20 @@ export default {
   watch: {
     async $route() {
       this.isLoading = true
-      this.$refs.container.scrollTop = 0
+      this.$refs.listContainer.scrollTop = 0
       this.data = []
       this.data = await this.fetchData()
       this.isLoading = false
     }
+  },
+  mounted() {
+    this.$bus.$on('mainScrollTo', this.handleScrollTo)
+    this.$refs.listContainer.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy() {
+    this.$bus.$emit('mainScroll')
+    this.$refs.listContainer.removeEventListener('scroll', this.handleScroll)
+    this.$bus.$off('mainScrollTo', this.handleScrollTo)
   },
   methods: {
     async fetchData() {
@@ -71,6 +80,12 @@ export default {
       } else {
         this.$router.push({ name: 'BlogCategory', query, params: { categoryId: this.routeInfo.categoryId } })
       }
+    },
+    handleScroll() {
+      this.$bus.$emit('mainScroll', this.$refs.listContainer)
+    },
+    handleScrollTo(scrollTop) {
+      this.$refs.listContainer.scrollTop = scrollTop
     }
   }
 }

@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     handleItem(item) {
-      console.log('item ->', item.name)
       if (item.selected) return
       this.$emit('select', item)
     }

@@ -21,9 +21,28 @@ export default {
       limit: 10
     }
   },
+  created() {
+    this.$bus.$on('mainScroll', this.handleScroll)
+  },
+  destroyed() {
+    this.$bus.$off('mainScroll', this.handleScroll)
+  },
+  computed: {
+    hasMore() {
+      return this.data.rows.length < this.data.total
+    }
+  },
   methods: {
     async fetchData() {
       return await getBlogComment()
+    },
+    async fetchMore() {
+      if (!this.hasMore) return
+      this.isLoading = true
+      this.page++
+      const res = await this.fetchData()
+      this.data.rows = this.data.rows.concat(res.rows)
+      this.isLoading = false
     },
     async handleSubmit(formData, callback) {
       const res = await addBlogComment({
@@ -33,6 +52,15 @@ export default {
       callback('评论成功')
       this.data.rows.unshift(res)
       this.data.total++
+    },
+    handleScroll(dom) {
+      if (this.isLoading || !dom) return
+      const range = 100
+      const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight)
+      if (dec <= range) {
+        console.log('bottom')
+        this.fetchMore()
+      }
     }
   },
 }

@@ -8,16 +8,18 @@
       </template>
       <RouterView />
     </Layout>
+    <ToTop />
   </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Sidebar'
 import Layout from '@/layout'
+import ToTop from '@/components/ToTop'
 
 export default {
   name: 'App',
-  components: { Sidebar, Layout, },
+  components: { Sidebar, Layout, ToTop },
 }
 </script>
 
