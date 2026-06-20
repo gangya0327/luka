@@ -58,7 +58,6 @@ export default {
       const range = 100
       const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight)
       if (dec <= range) {
-        console.log('bottom')
         this.fetchMore()
       }
     }

@@ -35,11 +35,12 @@
 <script>
 import Pagination from '@/components/Pagination'
 import fetchData from '@/mixins/fetchData'
+import mainScroll from '@/mixins/mainScroll'
 import { getBlogList } from '@/api/blog'
 
 export default {
   components: { Pagination },
-  mixins: [fetchData({})],
+  mixins: [fetchData({}), mainScroll('listContainer')],
   computed: {
     routeInfo() {
       const categoryId = +this.$route.params.categoryId || -1
@@ -57,15 +58,6 @@ export default {
       this.isLoading = false
     }
   },
-  mounted() {
-    this.$bus.$on('mainScrollTo', this.handleScrollTo)
-    this.$refs.listContainer.addEventListener('scroll', this.handleScroll)
-  },
-  beforeDestroy() {
-    this.$bus.$emit('mainScroll')
-    this.$refs.listContainer.removeEventListener('scroll', this.handleScroll)
-    this.$bus.$off('mainScrollTo', this.handleScrollTo)
-  },
   methods: {
     async fetchData() {
       return await getBlogList(this.routeInfo.page, this.routeInfo.limit, this.routeInfo.categoryId)
@@ -81,12 +73,6 @@ export default {
         this.$router.push({ name: 'BlogCategory', query, params: { categoryId: this.routeInfo.categoryId } })
       }
     },
-    handleScroll() {
-      this.$bus.$emit('mainScroll', this.$refs.listContainer)
-    },
-    handleScrollTo(scrollTop) {
-      this.$refs.listContainer.scrollTop = scrollTop
-    }
   }
 }
 </script>

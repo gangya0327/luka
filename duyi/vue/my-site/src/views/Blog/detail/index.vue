@@ -15,6 +15,7 @@
 <script>
 import { getBlog } from '@/api/blog'
 import fetchData from '@/mixins/fetchData'
+import mainScroll from '@/mixins/mainScroll'
 import Layout from '@/layout'
 import BlogDetail from './components/BlogDetail.vue'
 import BlogToc from './components/BlogToc.vue'
@@ -22,15 +23,11 @@ import BlogComment from './components/BlogComment.vue'
 
 export default {
   components: { Layout, BlogDetail, BlogToc, BlogComment },
-  mixins: [fetchData({})],
+  mixins: [fetchData({}), mainScroll('mainContainer')],
   data() {
     return {
       scrollTop: 0
     }
-  },
-  mounted() {
-    this.$bus.$on('mainScrollTo', this.handleScrollTo)
-    this.$refs.mainContainer.addEventListener('scroll', this.handleScroll)
   },
   updated() {
     const hash = location.hash
@@ -39,21 +36,10 @@ export default {
       location.hash = hash
     }, 50)
   },
-  beforeDestroy() {
-    this.$bus.$emit('mainScroll')
-    this.$refs.mainContainer.removeEventListener('scroll', this.handleScroll)
-    this.$bus.$off('mainScrollTo', this.handleScrollTo)
-  },
   methods: {
     async fetchData() {
       return await getBlog(this.$route.params.id)
     },
-    handleScroll() {
-      this.$bus.$emit('mainScroll', this.$refs.mainContainer)
-    },
-    handleScrollTo(scrollTop) {
-      this.$refs.mainContainer.scrollTop = scrollTop
-    }
   },
 }
 </script>
