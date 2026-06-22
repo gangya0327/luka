@@ -47,7 +47,7 @@ export default {
         },
         {
           link: '/message',
-          title: '留言板',
+          title: '留言',
           icon: 'icon-chat',
           exact: true // 判断是否精确匹配
         },

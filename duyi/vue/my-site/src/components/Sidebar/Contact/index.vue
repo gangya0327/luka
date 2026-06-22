@@ -5,7 +5,7 @@
         <div class="icon">
           <Icon type="icon-friends_add" :size="24" />
         </div>
-        <span>yingmenglin</span>
+        <span>{{ data.name }}</span>
       </a>
       <div class="pop">
         <img src="https://inews.gtimg.com/news_bt/OQoIp8QUTCBE22bGHbx42TiBAAZzg3HODrYc1658W7fC8AA/0" alt="">
@@ -16,7 +16,7 @@
         <div class="icon">
           <Icon type="icon-mail" :size="24" />
         </div>
-        <span>king9999427@163.com</span>
+        <span>{{ data.email }}</span>
       </a>
       <div class="pop">
         <img src="https://inews.gtimg.com/om_bt/Ow_l9u2rc2N-o5AGIFrh1rmVO9wAVOxHa8dbIVYkGM6hEAA/0" alt="">
@@ -25,12 +25,23 @@
     <li>
       <a href="">
         <div class="icon">
-          <Icon type="icon-voice" :size="24" />
+          <Icon type="icon-phonebook" :size="24" />
         </div>
-        <span>18768105813</span>
+        <span>{{ data.phone }}</span>
       </a>
       <div class="pop">
         <img src="https://inews.gtimg.com/news_bt/ONzmfQUYpVwB6iyXJJy5aGoh_jCw-mD9yfgnKcARA3W-EAA/0" alt="">
+      </div>
+    </li>
+    <li>
+      <a href="">
+        <div class="icon">
+          <Icon type="icon-voice" :size="24" />
+        </div>
+        <span>{{ data.qq }}</span>
+      </a>
+      <div class="pop">
+        <img src="https://inews.gtimg.com/news_bt/Op7FyTlVJKboQzNwfaOMQrs5GYWPdLOt44vT1n2BhDVXcAA/641" alt="">
       </div>
     </li>
   </ul>
@@ -38,6 +49,7 @@
 
 <script>
 import Icon from '@/components/Icon'
+import { mapState } from 'vuex';
 
 export default {
   components: { Icon },
@@ -46,6 +58,9 @@ export default {
       originLoaded: false, // 用于控制原图的显示与隐藏
       allLoaded: false, // 用于控制占位图的显示与隐藏
     }
+  },
+  computed: {
+    ...mapState('setting', ['data'])
   },
 }
 </script>

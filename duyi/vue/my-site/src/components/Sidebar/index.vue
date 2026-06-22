@@ -2,12 +2,12 @@
   <div class="sidebar-container">
     <Avatar :url="require('@/assets/avatar.png')" :width="160" :height="160" />
     <h2 class="title">
-      欢迎来到我的空间
+      {{ data.siteTitle }}
     </h2>
     <MenuComp />
     <Contact />
     <p class="footer">
-      浙 ICP 备 18259 号
+      {{ data.icp }}
     </p>
   </div>
 </template>
@@ -16,9 +16,13 @@
 import Avatar from '@/components/Avatar'
 import Contact from '@/components/Sidebar/Contact'
 import MenuComp from '@/components/Sidebar/Menu'
+import { mapState } from 'vuex';
 
 export default {
   components: { Avatar, Contact, MenuComp },
+  computed: {
+    ...mapState('setting', ['data'])
+  },
   methods: {
     handleLoad() {
       this.originLoaded = true
@@ -50,6 +54,7 @@ export default {
   .footer {
     text-align: center;
     font-size: 12px;
+    color: darken(@gray, 10%);
   }
 
   .title {

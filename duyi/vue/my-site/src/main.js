@@ -41,7 +41,11 @@ Vue.directive('lazy', vLazy)
 
 import '@/bus/eventBus.js'
 
+import store from '@/store'
+store.dispatch('setting/fetchSetting')
+
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
