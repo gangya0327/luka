@@ -44,10 +44,6 @@ export default {
     .info {
       display: flex;
 
-      .name {
-        margin-right: 20px;
-      }
-
       .sub {
         color: @gray;
         font-size: 16px;

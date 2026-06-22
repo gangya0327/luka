@@ -26,7 +26,7 @@ export default {
       return result.map(item => ({
         ...item,
         selected: item.id == +this.categoryId,
-        sub: item.articleCount + '篇'
+        sub: `（${item.articleCount}）`
       }))
     }
   },
