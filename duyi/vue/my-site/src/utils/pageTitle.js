@@ -2,7 +2,6 @@ let routeTitle = ''
 let siteTitle = ''
 
 function setTitle() {
-  console.log(routeTitle, '-', siteTitle)
   if (!routeTitle || !siteTitle) {
     document.title = 'loading...'
   } else if (routeTitle && siteTitle) {
