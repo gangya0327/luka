@@ -46,21 +46,27 @@ export default {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
   .avatar-container {
     margin: 20px auto;
-  }
-
-  .footer {
-    text-align: center;
-    font-size: 12px;
-    color: darken(@gray, 10%);
   }
 
   .title {
     font-size: 1.2em;
     text-align: center;
     color: #fff;
+  }
+
+  .menu-container {
+    flex: 1;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: darken(@gray, 10%);
   }
 }
 </style>

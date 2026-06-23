@@ -20,6 +20,7 @@ import Layout from '@/layout'
 import BlogDetail from './components/BlogDetail.vue'
 import BlogToc from './components/BlogToc.vue'
 import BlogComment from './components/BlogComment.vue'
+import { pageTitle } from '@/utils'
 
 export default {
   components: { Layout, BlogDetail, BlogToc, BlogComment },
@@ -38,7 +39,9 @@ export default {
   },
   methods: {
     async fetchData() {
-      return await getBlog(this.$route.params.id)
+      const data = await getBlog(this.$route.params.id)
+      pageTitle.setRouteTitle(data.title)
+      return data
     },
   },
 }

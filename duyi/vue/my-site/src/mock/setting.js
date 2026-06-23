@@ -5,7 +5,7 @@ Mock.mock('/api/setting', 'get', {
   msg: '请求成功',
   data: {
     avatar: 'https://picsum.photos/id/411/240/160',
-    siteTitle: '欢迎来到我的空间',
+    siteTitle: '我的个人空间',
     github: 'https://github.com/',
     qq: '352495863',
     name: 'yingmenglin',

@@ -1,4 +1,5 @@
 import { getSetting } from "@/api/setting"
+import { pageTitle } from '@/utils'
 
 export default {
   namespaced: true,
@@ -17,9 +18,12 @@ export default {
   actions: {
     async fetchSetting(ctx) {
       ctx.commit('setLoading', true)
-      const res = await getSetting()
-      ctx.commit('setData', res)
+      const data = await getSetting()
+      ctx.commit('setData', data)
       ctx.commit('setLoading', false)
+      if (data.siteTitle) {
+        pageTitle.setSiteTitle(data.siteTitle)
+      }
     }
   },
 }
