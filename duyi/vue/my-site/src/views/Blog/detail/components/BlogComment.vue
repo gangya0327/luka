@@ -1,7 +1,7 @@
 <template>
   <div class="blog-comment-container">
     <MessageArea
-      :is-list-loading="isLoading" :list="data.rows" title="评论列表" :sub-title="`（${data.total} ）`"
+      :is-list-loading="isLoading" :list="data.rows" title="评论列表" :sub-title="`（${data.total}）`"
       @submit="handleSubmit"
     />
   </div>
