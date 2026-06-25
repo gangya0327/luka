@@ -25,6 +25,7 @@
         </div>
       </li>
     </ul>
+    <Empty v-if="data.rows?.length === 0 && !isLoading" />
     <Pagination
       :current="routeInfo.page" :total="data.total" :limit="routeInfo.limit" :page-count="5"
       @pageChange="handlePageChange"
@@ -37,9 +38,10 @@ import Pagination from '@/components/Pagination'
 import fetchData from '@/mixins/fetchData'
 import mainScroll from '@/mixins/mainScroll'
 import { getBlogList } from '@/api/blog'
+import Empty from '@/components/Empty'
 
 export default {
-  components: { Pagination },
+  components: { Pagination, Empty },
   mixins: [fetchData({}), mainScroll('listContainer')],
   computed: {
     routeInfo() {

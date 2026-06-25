@@ -40,6 +40,10 @@ export default {
   methods: {
     async fetchData() {
       const data = await getBlog(this.$route.params.id)
+      if (!data) {
+        this.$router.push({ name: 'NotFound' })
+        return
+      }
       pageTitle.setRouteTitle(data.title)
       return data
     },
