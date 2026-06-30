@@ -51,18 +51,6 @@ const actions = {
           resolve()
         }
       })
-
-      getInfo(state.token).then(response => {
-        const { data } = response
-
-        if (!data) {
-          return reject(response)
-        }
-
-        resolve(data)
-      }).catch(error => {
-        reject(error)
-      })
     })
   },
 
