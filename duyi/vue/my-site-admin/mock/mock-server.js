@@ -46,10 +46,28 @@ const responseFake = (url, type, respond) => {
 module.exports = app => {
   // parse app.body
   // https://expressjs.com/en/4x/api.html#req.body
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({
+
+  // app.use(bodyParser.json())
+  // app.use(bodyParser.urlencoded({
+  //   extended: true
+  // }))
+
+  const jsonParser = bodyParser.json()
+  const urlencodedParser = bodyParser.urlencoded({
     extended: true
-  }))
+  })
+
+  app.use((req, res, next) => {
+    // 跳过所有 api和 res 请求
+    if (req.path.startsWith('/api') || req.path.startsWith('/res')) {
+      return next()
+    }
+
+    jsonParser(req, res, err => {
+      if (err) return next(err)
+      urlencodedParser(req, res, next)
+    })
+  })
 
   const mockRoutes = registerRoutes(app)
   var mockRoutesLength = mockRoutes.mockRoutesLength
