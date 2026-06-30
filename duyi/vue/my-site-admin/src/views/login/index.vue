@@ -34,7 +34,6 @@
           name="loginPwd"
           tabindex="2"
           auto-complete="on"
-          @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
@@ -54,6 +53,7 @@
             type="text"
             tabindex="3"
             auto-complete="on"
+            @keyup.enter.native="handleLogin"
           />
         </el-form-item>
         <div class="captcha-img" @click="getClickCaptcha" v-html="captchaImg" />
@@ -156,7 +156,6 @@ export default {
             this.loginForm.captcha = ''
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })

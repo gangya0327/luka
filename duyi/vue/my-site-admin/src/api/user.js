@@ -10,7 +10,7 @@ export function adminLogin(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/api/admin/whoami',
     method: 'get',
     params: { token }
   })
