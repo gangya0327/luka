@@ -6,23 +6,22 @@
       </el-table-column>
       <el-table-column prop="title" label="标题" width="180" align="center" />
       <el-table-column prop="description" label="描述" />
-      <el-table-column prop="midImg2" label="中图预览" align="center">
+      <el-table-column prop="midImg2" label="中图" align="center">
         <template slot-scope="scope">
           <el-image style="width: 120px" :src="scope.row.midImg2" />
         </template>
       </el-table-column>
-      <el-table-column prop="bigImg2" label="大图预览" align="center">
+      <el-table-column prop="bigImg2" label="大图" align="center">
         <template slot-scope="scope">
           <el-image style="width: 120px" :src="scope.row.bigImg2" />
         </template>
       </el-table-column>
       <el-table-column label="操作" width="80" align="center">
         <template slot-scope="scope">
-          <el-tooltip class="item" effect="dark" content="编辑" placement="top">
+          <el-tooltip effect="dark" content="编辑" placement="top">
             <el-button
               type="primary"
               icon="el-icon-edit"
-              circle
               size="mini"
               @click="handleEdit(scope.row)"
             />
@@ -115,5 +114,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>
