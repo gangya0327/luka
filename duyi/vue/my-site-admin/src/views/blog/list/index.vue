@@ -43,6 +43,17 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <el-pagination
+      style="margin: 15px 0;"
+      ::current-page="page"
+      :page-size="limit"
+      :page-sizes="[5, 10, 20, 50]"
+      layout="prev, pager, next, total, sizes, jumper"
+      :total="total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </div>
 </template>
 
@@ -55,6 +66,9 @@ export default {
   data() {
     return {
       data: [],
+      total: 0,
+      page: 1,
+      limit: 5,
       server_url,
       form: {
         id: '',
@@ -70,8 +84,9 @@ export default {
   },
   methods: {
     fetchData() {
-      getBlogList().then((res) => {
+      getBlogList({ page: this.page, limit: this.limit }).then((res) => {
         this.data = res.data.rows
+        this.total = res.data.total
       })
     },
     parseTime,
@@ -101,6 +116,14 @@ export default {
           arr[i] = this.form
         }
       }
+    },
+    handleSizeChange(size) {
+      this.limit = size
+      this.fetchData()
+    },
+    handleCurrentChange(page) {
+      this.page = page
+      this.fetchData()
     }
   }
 }
