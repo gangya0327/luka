@@ -12,7 +12,7 @@
       <el-table-column prop="description" label="描述">
         <template slot-scope="scope">{{ scope.row.description.join(',') }}</template>
       </el-table-column>
-      <el-table-column prop="midImg2" label="预览图" width="180" align="center">
+      <el-table-column label="预览图" width="180" align="center">
         <template slot-scope="scope">
           <el-image
             style="width: 120px"

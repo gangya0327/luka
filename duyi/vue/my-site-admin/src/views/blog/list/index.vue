@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-table :data="data" border style="width: 100%">
+    <el-table v-loading="listLoading" :data="data" border style="width: 100%">
       <el-table-column prop="date" label="序号" width="60" align="center">
         <template slot-scope="scope">{{ scope.$index + 1 }}</template>
       </el-table-column>
@@ -45,12 +45,13 @@
     </el-table>
 
     <el-pagination
-      style="margin: 15px 0;"
-      ::current-page="page"
-      :page-size="limit"
+      style="margin-top: 30px"
+      background
+      :page-size="eachPage"
       :page-sizes="[5, 10, 20, 50]"
-      layout="prev, pager, next, total, sizes, jumper"
-      :total="total"
+      layout="prev, pager, next, total, ->, sizes, jumper"
+      :current-page.sync="pagerCurrentPage"
+      :total="count"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
@@ -66,9 +67,6 @@ export default {
   data() {
     return {
       data: [],
-      total: 0,
-      page: 1,
-      limit: 5,
       server_url,
       form: {
         id: '',
@@ -76,7 +74,14 @@ export default {
         bigImg: '',
         title: '',
         description: ''
-      }
+      },
+      listLoading: false,
+      // 分页
+      currentPage: 1, // 当前页
+      eachPage: 5, // 每页显示的条数
+      totalPage: 0, // 总页数
+      count: 0, // 总条数
+      pagerCurrentPage: 1 // 分页组件当前页
     }
   },
   created() {
@@ -84,9 +89,16 @@ export default {
   },
   methods: {
     fetchData() {
-      getBlogList({ page: this.page, limit: this.limit }).then((res) => {
+      this.listLoading = true
+      getBlogList({ page: this.pagerCurrentPage, limit: this.eachPage }).then((res) => {
+        this.listLoading = false
         this.data = res.data.rows
-        this.total = res.data.total
+        this.count = res.data.total
+        this.totalPage = Math.ceil(this.count / this.eachPage)
+        if (this.currentPage > this.totalPage) {
+          this.currentPage = this.totalPage
+          this.fetchData()
+        }
       })
     },
     parseTime,
@@ -118,11 +130,13 @@ export default {
       }
     },
     handleSizeChange(size) {
-      this.limit = size
+      this.eachPage = size
+      this.currentPage = 1
+      this.pagerCurrentPage = 1
       this.fetchData()
     },
     handleCurrentChange(page) {
-      this.page = page
+      this.pagerCurrentPage = page
       this.fetchData()
     }
   }
