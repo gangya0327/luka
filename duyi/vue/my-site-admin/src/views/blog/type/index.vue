@@ -17,7 +17,7 @@
       </el-table-column>
       <el-table-column prop="name" label="类别" align="center" />
       <el-table-column prop="order" label="等级" align="center" />
-      <el-table-column prop="articleCount" label="博客数量" align="center" />
+      <el-table-column prop="articleCount" label="文章数量" align="center" />
       <el-table-column label="操作" width="160" align="center">
         <template slot-scope="scope">
           <el-button
@@ -108,7 +108,7 @@ export default {
       })
     },
     handleDelete(item) {
-      this.$confirm('删除该分类吗？删除后改分类下所有博客将变为未分类状态', '提示', {
+      this.$confirm('删除该分类吗？删除后改分类下所有文章将变为未分类状态', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

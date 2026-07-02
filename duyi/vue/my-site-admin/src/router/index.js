@@ -92,6 +92,13 @@ export const constantRoutes = [
         name: 'BlogAdd',
         component: () => import('@/views/blog/add'),
         meta: { title: '添加文章', icon: 'el-icon-document-add', auth: true }
+      },
+      {
+        path: 'edit/:id',
+        name: 'BlogEdit',
+        component: () => import('@/views/blog/add'),
+        meta: { title: '编辑文章', icon: 'el-icon-document-add', auth: true },
+        hidden: true
       }
     ]
   },

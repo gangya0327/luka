@@ -8,11 +8,7 @@
         <template slot-scope="scope">
           <el-tooltip effect="light" placement="top">
             <template #content>
-              <!-- <el-image :src="server_url + scope.row.thumb" /> -->
-              <el-image
-                :src="server_url + '/static/upload/2021-6-29-10-23-30-427-57add.jpg'"
-                style="width: 200px"
-              />
+              <el-image :src="server_url + scope.row.thumb" style="width: 200px" />
             </template>
             <span>{{ scope.row.title }}</span>
           </el-tooltip>
@@ -47,50 +43,18 @@
         </template>
       </el-table-column>
     </el-table>
-
-    <el-dialog title="编辑信息" :visible.sync="dialogVisible">
-      <el-form :model="form">
-        <el-form-item label="轮播标题">
-          <el-input v-model="form.title" />
-        </el-form-item>
-        <el-form-item label="描述">
-          <el-input v-model="form.description" />
-        </el-form-item>
-
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="中图">
-              <Upload v-model="form.midImg" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="大图">
-              <Upload v-model="form.bigImg" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
-
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleEditBanner">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
 <script>
 import { getBlogList, delBlog } from '@/api/blog'
 import { server_url } from '@/utils/config'
-import Upload from '@/components/Upload'
 import { parseTime } from '@/utils'
 
 export default {
-  components: { Upload },
   data() {
     return {
       data: [],
-      dialogVisible: false,
       server_url,
       form: {
         id: '',
@@ -112,11 +76,10 @@ export default {
     },
     parseTime,
     handleEdit(item) {
-      this.form = { ...item }
-      this.dialogVisible = true
+      this.$router.push('/blog/edit/' + item.id)
     },
     handleDelete(item) {
-      this.$confirm('删除该博客吗？', '提示', {
+      this.$confirm('删除该文章吗？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
