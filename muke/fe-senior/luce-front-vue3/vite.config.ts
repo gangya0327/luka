@@ -7,11 +7,12 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // import Pages from 'vite-plugin-pages'
 import VueRouter from 'vue-router/vite'
+import UnoCSS from 'unocss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   // plugins: [vue(), vueJsx(), vueDevTools(), Pages()],
-  plugins: [VueRouter(), vue(), vueJsx(), vueDevTools()],
+  plugins: [UnoCSS(), VueRouter(), vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
