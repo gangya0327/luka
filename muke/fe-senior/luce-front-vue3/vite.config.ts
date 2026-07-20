@@ -5,14 +5,14 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
-// import Pages from 'vite-plugin-pages'
 import VueRouter from 'vue-router/vite'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // plugins: [vue(), vueJsx(), vueDevTools(), Pages()],
   plugins: [
     UnoCSS(),
     VueRouter(),
@@ -35,6 +35,9 @@ export default defineConfig({
         'vue-router',
         '@vueuse/core',
       ],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
     }),
   ],
   resolve: {
