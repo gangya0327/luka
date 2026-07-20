@@ -12,6 +12,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import Layouts from 'vite-plugin-vue-layouts'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -49,6 +50,10 @@ export default defineConfig({
     }),
     Icons({
       autoInstall: true,
+    }),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      defaultLayout: 'default',
     }),
   ],
   resolve: {

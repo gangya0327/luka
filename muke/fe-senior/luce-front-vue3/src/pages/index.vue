@@ -20,3 +20,8 @@ const text = ref('hello text')
     <user-component></user-component>
   </div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: default
+</route>

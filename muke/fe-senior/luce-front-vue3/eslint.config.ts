@@ -24,7 +24,7 @@ export default defineConfigWithVueTs(
 
   {
     name: 'app/pages-relax-component-name',
-    files: ['src/pages/**/*.vue'],
+    files: ['src/**/*.vue'],
     rules: {
       'vue/multi-word-component-names': 'off',
     },
