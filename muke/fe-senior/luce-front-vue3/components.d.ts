@@ -14,9 +14,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    ICarbonAccessibility: typeof import('~icons/carbon/accessibility')['default']
     IconMdiAccount: typeof import('~icons/mdi/account')['default']
-    IMdiAccountBox: typeof import('~icons/mdi/account-box')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UserComponent: typeof import('./src/components/user/UserComponent.vue')['default']
@@ -27,9 +25,7 @@ declare module 'vue' {
 declare global {
   const ElButton: typeof import('element-plus/es')['ElButton']
   const HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-  const ICarbonAccessibility: typeof import('~icons/carbon/accessibility')['default']
   const IconMdiAccount: typeof import('~icons/mdi/account')['default']
-  const IMdiAccountBox: typeof import('~icons/mdi/account-box')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
   const UserComponent: typeof import('./src/components/user/UserComponent.vue')['default']
