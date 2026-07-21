@@ -6,7 +6,10 @@
 .main {
   font-size: 40px;
   color: chocolate;
-  text-align: center;
-  margin-top: 30vh;
 }
 </style>
+
+<route lang="yaml">
+meta:
+  layout: 404
+</route>
