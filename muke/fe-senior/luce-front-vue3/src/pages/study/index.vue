@@ -1,11 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Menu></Menu>
-
-  <RouterView></RouterView>
-
-  <div>footer</div>
+  <div class="">学习页面</div>
 </template>
 
 <style lang="scss" scoped></style>
