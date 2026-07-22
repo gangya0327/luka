@@ -12,23 +12,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus/es')['ElButton']
+    Container: typeof import('./src/components/Container.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    IconMdiAccount: typeof import('~icons/mdi/account')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    UserComponent: typeof import('./src/components/user/UserComponent.vue')['default']
+    Swiper: typeof import('./src/components/Swiper.vue')['default']
   }
 }
 
 // For TSX support
 declare global {
-  const ElButton: typeof import('element-plus/es')['ElButton']
+  const Container: typeof import('./src/components/Container.vue')['default']
   const HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-  const IconMdiAccount: typeof import('~icons/mdi/account')['default']
   const Menu: typeof import('./src/components/Menu.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
-  const UserComponent: typeof import('./src/components/user/UserComponent.vue')['default']
+  const Swiper: typeof import('./src/components/Swiper.vue')['default']
 }
