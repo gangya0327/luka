@@ -1,5 +1,12 @@
 // uno.config.ts
-import { presetWind3, presetIcons, presetAttributify, defineConfig } from 'unocss'
+import {
+  presetWind3,
+  presetIcons,
+  presetAttributify,
+  defineConfig,
+  transformerDirectives,
+} from 'unocss'
+// import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig({
   // ...UnoCSS选项
@@ -13,4 +20,8 @@ export default defineConfig({
       },
     }),
   ],
+  transformers: [transformerDirectives()],
+  shortcuts: {
+    'router-link': 'text-blue-500 hover:text-blue-700',
+  },
 })
