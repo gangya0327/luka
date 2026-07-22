@@ -11,11 +11,11 @@ const router = createRouter({
   // routes,
 })
 
-router.beforeEach((to) => {
-  if (to.path === '/home') {
-    return '/'
-  }
-  return
-})
+// router.beforeEach((to) => {
+//   if (to.path === '/home') {
+//     return '/'
+//   }
+//   return
+// })
 
 export default router
