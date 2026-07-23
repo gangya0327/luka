@@ -33,7 +33,7 @@ const imageClass = computed(() => {
   if (!props.title && !props.subTitle && props.imageType === 'rounded') {
     return defaultClass + 'rounded h-60'
   } else if (props.imageType === 'avatar') {
-    return defaultClass + 'h-20 w-20 rounded-50% self-center absolute top-0 translate-y--50%'
+    return defaultClass + 'h-30 w-30 rounded-50% self-center absolute top-0 translate-y--50%'
   }
   return defaultClass + 'h-40'
 })

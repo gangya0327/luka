@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useThemeStore } from '@/stores/useThemeStore'
+const themeStore = useThemeStore()
+
 import type { SwiperItemType } from '@/components/types'
 import bg1 from '@/assets/images/bg1.jpeg'
 import bg2 from '@/assets/images/bg2.jpeg'
@@ -26,8 +29,8 @@ const items: SwiperItemType[] = [
 
 <template>
   <div class="">
-    <Swiper :items="items" height="h-120"></Swiper>
-    <div flex gap-10>
+    <Swiper :items="items" :height="30 * themeStore.rate + 'rem'"></Swiper>
+    <div flex mt-20 gap-10>
       <Card icon="i-mdi-home-account" border title="标题" subTitle="这是一段描述内容"></Card>
       <Card :image="bg1" border imageType="avatar" title="标题" subTitle="这是一段描述内容"></Card>
       <Card :image="bg1" border imageType="rounded" title="标题" subTitle="这是一段描述内容"></Card>
