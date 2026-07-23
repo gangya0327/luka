@@ -67,7 +67,7 @@ const onSlideChange = () => {
     <div
       class="flex justify-center items-center absolute right-0 bottom-0 bg-white opacity-60 text-black-300 w-40 h-16 z-30"
     >
-      <div class="pagination w-unset" font-500 mr-4></div>
+      <div class="pagination w-unset!" font-500 mr-4></div>
       <div i-line-md-chevron-small-double-left class="prev" text-6></div>
       <div i-line-md-chevron-small-double-right class="next" text-6></div>
     </div>

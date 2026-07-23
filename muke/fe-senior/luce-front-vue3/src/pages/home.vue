@@ -26,7 +26,12 @@ const items: SwiperItemType[] = [
 
 <template>
   <div class="">
-    <Swiper :items="items" height="h-220"></Swiper>
+    <Swiper :items="items" height="h-120"></Swiper>
+    <div flex gap-10>
+      <Card icon="i-mdi-home-account" border title="标题" subTitle="这是一段描述内容"></Card>
+      <Card :image="bg1" border imageType="avatar" title="标题" subTitle="这是一段描述内容"></Card>
+      <Card :image="bg1" border imageType="rounded" title="标题" subTitle="这是一段描述内容"></Card>
+    </div>
   </div>
 </template>
 
