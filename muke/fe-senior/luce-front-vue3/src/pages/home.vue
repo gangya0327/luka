@@ -35,10 +35,16 @@ const items: SwiperItemType[] = [
       <Card :image="bg1" border imageType="avatar" title="标题" subTitle="这是一段描述内容"></Card>
       <Card :image="bg1" border imageType="rounded" title="标题" subTitle="这是一段描述内容"></Card>
     </div>
+    <div class="test">测试移动端样式转换</div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.test {
+  width: 300px;
+  height: 100px;
+}
+</style>
 
 <!-- <route lang="yaml">
 name: home

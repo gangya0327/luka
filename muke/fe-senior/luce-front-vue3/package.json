@@ -51,6 +51,8 @@
     "mockjs": "^1.1.0",
     "npm-run-all2": "^9.0.2",
     "oxlint": "~1.69.0",
+    "postcss": "^8.5.22",
+    "postcss-px-to-viewport-8-plugin": "^1.2.5",
     "prettier": "3.8.4",
     "sass": "^1.101.0",
     "start-server-and-test": "^3.0.11",
