@@ -1,7 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  align: {
+    type: String as PropType<'vertical' | 'horizontal'>,
+  },
+})
+</script>
 
 <template>
-  <div flex>
+  <div :class="['flex', { 'flex-col': align === 'vertical' }]">
     <RouterLink class="link" to="/home">产品</RouterLink>
     <a class="link" href="https://cn.vuejs.org/" target="_blank">社区</a>
     <RouterLink class="link" to="/study">学习</RouterLink>
@@ -11,7 +17,7 @@
 
 <style lang="scss" scoped>
 .link {
-  @apply text-white text-xl px-8 py-2 font-300 relative cursor-pointer;
+  @apply text-white text-xl px-8 py-2 font-300 relative cursor-pointer lt-sm:self-start;
 
   &:hover {
     @apply font-400;

@@ -7,11 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <title>Vite App</title>
   <script>
-    // 判断是否是iPhone或iPad
-    // if (/iPhone|iPad/i.test(navigator.userAgent)) {
-    //   location.href = "https://chat.deepseek.com";
-    // }
-
     // 设置字体大小
     // function setFontSize() {
     //   document.documentElement.style.fontSize = (document.documentElement.clientWidth / 1920) * 16 + 'px'
@@ -26,6 +21,13 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
+  <script>
+    // 判断是否是iPhone或iPad
+    if (/iPhone|iPad|Android|Windows Phone/i.test(navigator.userAgent)) {
+      // location.href = "https://chat.deepseek.com";
+      document.body.classList.add('mobile-device')
+    }
+  </script>
 </body>
 
 </html>

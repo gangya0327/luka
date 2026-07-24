@@ -5,6 +5,7 @@ import {
   presetAttributify,
   defineConfig,
   transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss'
 // import transformerDirectives from '@unocss/transformer-directives'
 
@@ -20,7 +21,7 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerDirectives()],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
   shortcuts: {
     'router-link': 'text-blue-500 hover:text-blue-700',
     'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top',
