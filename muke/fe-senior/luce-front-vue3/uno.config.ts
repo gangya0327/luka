@@ -26,4 +26,9 @@ export default defineConfig({
     'router-link': 'text-blue-500 hover:text-blue-700',
     'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top',
   },
+  theme: {
+    colors: {
+      main: '#4e98f4',
+    },
+  },
 })

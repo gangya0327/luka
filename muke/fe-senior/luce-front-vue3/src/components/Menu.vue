@@ -2,6 +2,7 @@
 defineProps({
   align: {
     type: String as PropType<'vertical' | 'horizontal'>,
+    default: 'horizontal',
   },
 })
 </script>

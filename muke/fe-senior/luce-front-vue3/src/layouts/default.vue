@@ -18,22 +18,23 @@ useResizeObserver(document.body, () => {
 </script>
 
 <template>
-  <div fixed top-0 w-full z-50 :class="{ 'bg-black bg-opacity-30 shadow-lg': y > 0 }">
+  <div
+    class="fixed top-0 w-full z-50 transition-all duration-300"
+    :class="[{ 'bg-black bg-opacity-30 shadow-lg': y > 0 }, { 'lt-sm:(bg-black h-full)': show }]"
+  >
     <Container>
-      <img src="@/assets/logo4.png" w-16 h-full py-2 lt-sm:mx-auto />
+      <RouterLink to="/">
+        <img src="@/assets/logo4.png" w-16 h-full py-2 lt-sm:mx-auto />
+      </RouterLink>
       <div
-        class="i-mage-arrowlist"
-        hidden
-        text-gray-300
-        text-2xl
-        absolute
-        right-3
-        top-3
-        cursor-pointer
-        hover:text-white
-        lt-sm:block
+        class="hidden text-gray-300 text-2xl absolute right-3 top-3 cursor-pointer hover:text-white lt-sm:block"
         @click="toggleMenu()"
-      ></div>
+      >
+        <Transition name="rotate-icon" mode="out-in">
+          <div v-if="show" i-mage-multiply></div>
+          <div v-else i-mage-arrowlist></div>
+        </Transition>
+      </div>
       <Menu v-show="show" class="lt-sm:(absolute top-14 right-0 w-full flex-col)"></Menu>
     </Container>
   </div>
@@ -44,6 +45,29 @@ useResizeObserver(document.body, () => {
 
   <div>
     <div class="mobile-hide">default footer</div>
-    <div class="mobile hidden">mobile footer</div>
+    <div class="mobile hidden">
+      mobile footer
+      <MobileNavbar></MobileNavbar>
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.rotate-icon-enter-active {
+  animation: scaleYIn 0.3s;
+}
+.rotate-icon-leave-active {
+  animation: scaleYIn 0.3s reverse;
+}
+
+@keyframes scaleYIn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+</style>
