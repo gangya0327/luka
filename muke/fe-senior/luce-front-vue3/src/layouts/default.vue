@@ -41,10 +41,12 @@ useResizeObserver(document.body, () => {
 
   <RouterView></RouterView>
 
-  <div h-2000px></div>
+  <div h-1000px></div>
 
   <div>
-    <div class="mobile-hide">default footer</div>
+    <div class="mobile-hide">
+      <DefaultFooter></DefaultFooter>
+    </div>
     <div class="mobile hidden">
       mobile footer
       <MobileNavbar></MobileNavbar>
