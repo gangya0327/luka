@@ -34,7 +34,7 @@ withDefaults(defineProps<FootItem>(), {
 </script>
 
 <template>
-  <div bg-coolGray-700 text-coolGray-400 text-lg py-4>
+  <div bg-coolGray-700 text-coolGray-400 text-sm py-4>
     <Container flex-col>
       <!-- 菜单 -->
       <div w-full flex justify-between items-center>
@@ -44,7 +44,7 @@ withDefaults(defineProps<FootItem>(), {
           <li><RouterLink class="link" to="/study">学习</RouterLink></li>
           <li><RouterLink class="link" to="/about">关于</RouterLink></li>
         </ul>
-        <div flex items-center pr-10 text-3xl z-1>
+        <div flex items-center pr-10 text-2xl z-1>
           <div class="group relative">
             <i class="i-ic-baseline-wechat" cursor-pointer></i>
             <img
@@ -72,7 +72,7 @@ withDefaults(defineProps<FootItem>(), {
       <!-- 介绍 -->
       <ul w-full flex justify-start mb-4>
         <li>
-          <div text-gray-200 font-500 text-lg flex items-center pb-4>
+          <div text-gray-200 font-500 flex items-center pb-4>
             <i i-material-symbols-call-sharp mr-2></i>
             <span> 联系信息</span>
           </div>
@@ -83,7 +83,7 @@ withDefaults(defineProps<FootItem>(), {
           <p>地址：{{ contacts.address }}</p>
         </li>
         <li ml-10>
-          <div text-gray-200 font-500 text-lg flex items-center pb-4>
+          <div text-gray-200 font-500 flex items-center pb-4>
             <i i-whh-friends mr-2></i>
             <span>友链信息</span>
           </div>
