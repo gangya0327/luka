@@ -3,4 +3,5 @@ export interface SwiperItemType {
   title?: string
   subTitle?: string
   description?: string
+  url?: string
 }

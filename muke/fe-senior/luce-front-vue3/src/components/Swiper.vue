@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import type { Swiper as SwiperType } from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import type { SwiperItemType } from '@/components/types'
 
 import 'swiper/css/navigation'
@@ -19,7 +19,9 @@ const props = defineProps({
   },
 })
 
-const modules = [Navigation, Pagination]
+const modules = [Navigation, Pagination, Autoplay]
+
+const emits = defineEmits(['change'])
 
 function getClassAndStyle(str: string) {
   return {
@@ -31,20 +33,23 @@ function getClassAndStyle(str: string) {
 const onSwiper = (swiper: SwiperType) => {
   console.log(swiper)
 }
-const onSlideChange = () => {
+const onSlideChange = (e: SwiperType) => {
   console.log('slide change')
+  emits('change', e)
 }
 </script>
 
 <template>
   <swiper
     :modules="modules"
+    :autoplay="{ delay: 10000, pauseOnMouseEnter: true }"
     :navigation="{ prevEl: '.prev', nextEl: '.next' }"
     :pagination="{ type: 'fraction', el: '.pagination' }"
     :slides-per-view="1"
     :space-between="0"
     :class="getClassAndStyle(props.height).class"
     :style="getClassAndStyle(props.height).style"
+    v-bind="$attrs"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   >

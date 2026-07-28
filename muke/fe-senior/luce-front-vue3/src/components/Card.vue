@@ -23,7 +23,7 @@ const cardClass = computed(() => {
     defaultClass += 'relative mt-10 '
   }
   if (props.border) {
-    defaultClass += 'border border-red-300'
+    defaultClass += 'border border-gray-300'
   }
   return defaultClass
 })
@@ -49,14 +49,18 @@ const titleClass = computed(() => {
 
 <template>
   <div :class="cardClass">
-    <div v-if="image" :class="imageClass" :style="{ backgroundImage: `url(${image})` }"></div>
+    <img
+      v-if="image"
+      :class="imageClass"
+      object-cover
+      :src="image + '?v=' + Date.now()"
+      referrerpolicy="no-referrer"
+    />
     <div v-else :class="[icon, 'w-20 h-20']"></div>
     <div v-if="title || subTitle" :class="titleClass">
-      <p text-lg text-dark-300 font-500 pb-2>{{ title }}</p>
-      <p text-sm text-dark-100 font-100>{{ subTitle }}</p>
+      <p text-lg text-dark-300 font-500 pb-2 w-full truncate>{{ title }}</p>
+      <p text-sm text-dark-100 font-100 line-clamp-2>{{ subTitle }}</p>
     </div>
     <slot :item="{ image, icon, title, subTitle, url }"></slot>
   </div>
 </template>
-
-<style lang="scss" scoped></style>
