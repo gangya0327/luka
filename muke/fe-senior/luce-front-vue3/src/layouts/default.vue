@@ -23,7 +23,7 @@ useResizeObserver(document.body, () => {
     :class="[{ 'bg-black bg-opacity-30 shadow-lg': y > 0 }, { 'lt-sm:(bg-black h-full)': show }]"
   >
     <Container>
-      <RouterLink to="/">
+      <RouterLink to="/" pr-10>
         <img src="@/assets/logo4.png" w-16 h-full py-2 lt-sm:mx-auto />
       </RouterLink>
       <div
