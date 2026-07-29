@@ -34,7 +34,6 @@ const onSwiper = (swiper: SwiperType) => {
   console.log(swiper)
 }
 const onSlideChange = (e: SwiperType) => {
-  console.log('slide change')
   emits('change', e)
 }
 </script>

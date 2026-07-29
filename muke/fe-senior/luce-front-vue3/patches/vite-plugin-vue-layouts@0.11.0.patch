@@ -1,0 +1,28 @@
+diff --git a/dist/index.js b/dist/index.js
+index 5693ad5e4e61ef35a7d52f6c7f9a0d2e26fe16e6..c4ba2ef397568fa95010e687fd4bdfb9567744b6 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -323,9 +323,6 @@ function Layout(userOptions = {}) {
+       watcher.on("unlink", (path) => {
+         updateVirtualModule(path);
+       });
+-      watcher.on("change", async (path) => {
+-        updateVirtualModule(path);
+-      });
+     },
+     resolveId(id) {
+       return MODULE_IDS.includes(id) || MODULE_IDS.some((i) => id.startsWith(i)) ? MODULE_ID_VIRTUAL : null;
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 59b6e42c359c3e0a611f16ece5002b1aec87a49b..6bff6840b015ca989ab1b9ef0b47e9cacc980029 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -287,9 +287,6 @@ function Layout(userOptions = {}) {
+       watcher.on("unlink", (path) => {
+         updateVirtualModule(path);
+       });
+-      watcher.on("change", async (path) => {
+-        updateVirtualModule(path);
+-      });
+     },
+     resolveId(id) {
+       return MODULE_IDS.includes(id) || MODULE_IDS.some((i) => id.startsWith(i)) ? MODULE_ID_VIRTUAL : null;

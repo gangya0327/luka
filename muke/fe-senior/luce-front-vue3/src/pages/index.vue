@@ -145,6 +145,27 @@ const partners = ref([
     <Container>
       <FreeSwiper :items="partners"></FreeSwiper>
     </Container>
+
+    <Container py-4>
+      <div class="w-2/3 h-400px">
+        <div grid grid-cols-4 grid-rows-3 h-full gap-4 p-4>
+          <div border col-start-1 col-span-4 row-start-1 row-span-1 bg-cyan>1</div>
+          <div border col-start-1 col-span-2 row-start-2 row-span-2 bg-violet>2</div>
+          <div border col-start-3 col-span-2 row-start-2 row-span-1 bg-pink>3</div>
+          <div border col-start-3 col-span-1 row-start-3 row-span-1 bg-lime>4</div>
+          <div border col-start-4 col-span-1 row-start-3 row-span-1 bg-teal>5</div>
+        </div>
+      </div>
+      <div class="w-1/3">
+        <div text-2xl font-bold pb-4>讲师团队</div>
+        <div text-sm text-gray-400>
+          <p>一线大厂，资深工程师</p>
+          <p>技术专家定期分享行业动态</p>
+          <p>前端，后端，全栈</p>
+          <p>深度解析热门技术，提升开发效率</p>
+        </div>
+      </div>
+    </Container>
   </div>
 </template>
 
