@@ -25,11 +25,12 @@
     'https://class.imooc.com/static/module/marketpage2020/img/intro/fesenior/swiper2.png', 
     'https://class.imooc.com/static/module/marketpage2020/img/intro/fesenior/swiper3.png', 
     'https://class.imooc.com/static/module/marketpage2020/img/intro/fesenior/swiper4.png',
-    'https://class.imooc.com/static/module/marketpage2020/img/intro/fesenior/swiper3.png',
-  ].map((t) => ({ image: t })))
+  ])
 </script>
 
-<Swiper w-full :items="items" loop></Swiper>
+<!-- <Swiper w-full :items="items" loop></Swiper> -->
+
+<ImageSwiper w-full px-4 :height="400" :titles="['通识强化','进阶提升','高阶跃迁','拓展&深耕']" :items="items"></ImageSwiper>
 
 ## **项目介绍**
 
