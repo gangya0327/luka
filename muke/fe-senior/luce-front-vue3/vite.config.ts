@@ -15,13 +15,19 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Layouts from 'vite-plugin-vue-layouts'
 import { viteMockServe } from 'vite-plugin-mock'
 // import postcssPxtToViewport8Plugin from 'postcss-px-to-viewport-8-plugin'
+import Markdown from 'unplugin-vue-markdown/vite'
+import prism from 'markdown-it-prism'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     UnoCSS(),
-    VueRouter(),
-    vue(),
+    VueRouter({
+      extensions: ['.vue', '.md'],
+    }),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
     vueJsx(),
     vueDevTools(),
     AutoImport({
@@ -50,6 +56,7 @@ export default defineConfig({
         }),
         // IconsResolver(),
       ],
+      include: [/\.vue$/, /\.md$/],
     }),
     Icons({
       autoInstall: true,
@@ -61,6 +68,10 @@ export default defineConfig({
     viteMockServe({
       mockPath: 'mock',
       enable: true,
+    }),
+    Markdown({
+      headEnabled: true,
+      markdownItUses: [prism],
     }),
   ],
   resolve: {

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, FreeMode } from 'swiper/modules'
+import 'swiper/css'
 
 const modules = [Autoplay, FreeMode]
 

@@ -9,8 +9,11 @@ import router from './router'
 import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
 
-const app = createApp(App)
+import { createHead } from '@unhead/vue/client'
+const head = createHead()
 
+const app = createApp(App)
+app.use(head)
 app.use(createPinia())
 app.use(router)
 
