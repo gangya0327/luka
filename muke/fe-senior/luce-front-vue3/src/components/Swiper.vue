@@ -69,7 +69,8 @@ const onSlideChange = (e: SwiperType) => {
     </swiper-slide>
 
     <div
-      class="flex justify-center items-center absolute right-0 bottom-0 bg-white opacity-60 text-black-300 w-40 h-16 z-30"
+      v-if="!$attrs.pagination_hide"
+      class="flex justify-center items-center absolute right-0 bottom-0 bg-white opacity-60 text-black-300 w-40 h-12 z-30"
     >
       <div class="pagination w-unset!" font-500 mr-4></div>
       <div i-line-md-chevron-small-double-left class="prev" text-6></div>

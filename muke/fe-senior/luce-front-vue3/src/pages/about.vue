@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TestMarkdown from './study/test.md'
+import TestMarkdown from '@/pages/study/test.md'
 </script>
 
 <template>

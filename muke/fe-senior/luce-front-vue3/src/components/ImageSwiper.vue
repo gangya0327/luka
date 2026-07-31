@@ -9,7 +9,7 @@ import 'swiper/css'
 
 const { width } = useWindowSize()
 
-const props = defineProps({
+defineProps({
   height: {
     type: Number,
     default: 1200,
