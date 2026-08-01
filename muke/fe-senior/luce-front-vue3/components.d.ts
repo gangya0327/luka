@@ -24,6 +24,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper.vue')['default']
+    Tabs: typeof import('./src/components/Tabs.vue')['default']
   }
 }
 
@@ -41,4 +42,5 @@ declare global {
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
   const Swiper: typeof import('./src/components/Swiper.vue')['default']
+  const Tabs: typeof import('./src/components/Tabs.vue')['default']
 }

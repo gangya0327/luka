@@ -1,0 +1,90 @@
+[
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/0b5e576a0826253e05400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/996.html",
+    "courseName": "SDD规范驱动+Harness驾驭工程AI全栈开发",
+    "enrollmentCount": "236",
+    "currentPrice": "￥269",
+    "originalPrice": "￥299.00",
+    "teacher": null,
+    "category": "初阶",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/fd0be76a08617c6c05400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1014.html",
+    "courseName": "零基础 AI 漫剧智能量产创作营",
+    "enrollmentCount": "33",
+    "currentPrice": "￥660",
+    "originalPrice": "￥1299.00",
+    "teacher": null,
+    "category": "零基础",
+    "promotionTag": "早鸟价"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/8c98846a0962d28405400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1013.html",
+    "courseName": "Agent 工程化+ AI 编程深度实战营",
+    "enrollmentCount": "41",
+    "currentPrice": "￥1259",
+    "originalPrice": "￥1480.00",
+    "teacher": null,
+    "category": "进阶",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/e167566a095f04ed05400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1007.html",
+    "courseName": "系统规划与管理师（软考高级）一站式通关课",
+    "enrollmentCount": "11",
+    "currentPrice": "￥1109",
+    "originalPrice": "￥1299.00",
+    "teacher": null,
+    "category": "高级",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/8973096a095eeeeb05400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1011.html",
+    "courseName": "26年火热报名，精讲软件设计师（软考中级）",
+    "enrollmentCount": "13",
+    "currentPrice": "￥1109",
+    "originalPrice": "￥1299.00",
+    "teacher": null,
+    "category": "中级",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/4d86ce6a0957220c05400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1008.html",
+    "courseName": "不用 Python/SQL，AI 数据分析实战课",
+    "enrollmentCount": "23",
+    "currentPrice": "￥239",
+    "originalPrice": "￥299.00",
+    "teacher": null,
+    "category": "零基础",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/e778266a083cbbf305400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/1003.html",
+    "courseName": "AI大模型微调，从原理剖析到企业级落地实战",
+    "enrollmentCount": "52",
+    "currentPrice": "￥449",
+    "originalPrice": "￥499.00",
+    "teacher": null,
+    "category": "进阶",
+    "promotionTag": "上新特惠"
+  },
+  {
+    "coverImage": "https://img1.sycdn.imooc.com/szimg/b0ea726a0830fcc805400304.jpg",
+    "courseUrl": "https://coding.imooc.com/class/999.html",
+    "courseName": "Vibe Coding 进阶实战--打造 K12 AI智能教育系统",
+    "enrollmentCount": "50",
+    "currentPrice": "￥259",
+    "originalPrice": "￥299.00",
+    "teacher": null,
+    "category": "进阶",
+    "promotionTag": "上新特惠"
+  }
+]

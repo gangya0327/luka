@@ -32,13 +32,14 @@
       <div w-full flex>
         <div class="w-3/4" bg-white mr-4>
           <!-- tabs -->
-          <div border-b-1 border-b-color-gray-300>
+          <!-- <div border-b-1 border-b-color-gray-300>
             <ul class="tabs" flex w-full>
               <li class="active" px-4 py-2 cursor-pointer>课程介绍</li>
               <li px-4 py-2 cursor-pointer>内容目录</li>
               <li px-4 py-2 cursor-pointer>学员评价</li>
             </ul>
-          </div>
+          </div> -->
+          <Tabs :items="['课程介绍', '内容目录', '学员评价']"></Tabs>
           <!-- tabs 内容 -->
           <div p-4>
             <!-- 左边 markdown -->
