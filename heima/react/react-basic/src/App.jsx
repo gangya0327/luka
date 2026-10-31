@@ -1,10 +1,11 @@
-// import DemoBasic from './demo/DemoBasic';
-import DemoUseState from './demo/DemoUseState';
+// import DemoBasic from './demo/1-basic';
+// import DemoUseState from './demo/2-useState';
+import DemoStyle from './demo/3-style';
 
 function App() {
   return (
     <div>
-      <DemoUseState />
+      <DemoStyle />
     </div>
   );
 }
