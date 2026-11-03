@@ -5,12 +5,14 @@
 // import DemoUseRef from './demo/6-useRef';
 // import DemoChild from './demo/7-child';
 // import DemoChildren from './demo/8-children';
-import DemoContext from './demo/9-context';
+// import DemoContext from './demo/9-context';
+// import DemoUseEffect from './demo/10-useEffect';
+import DemoHooks from './demo/11-hooks';
 
 function App() {
   return (
     <div>
-      <DemoContext />
+      <DemoHooks />
     </div>
   );
 }
