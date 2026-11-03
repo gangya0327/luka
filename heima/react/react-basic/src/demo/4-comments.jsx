@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
+import { v4 as uuidv4 } from 'uuid';
+import dayjs from 'dayjs';
 
 import './4-comments.scss';
 import avatar from './images/bozai.png';
@@ -88,12 +90,18 @@ export default function DemoComments() {
   const handleTabChange = (type) => {
     setType(type);
     if (type === 'hot') {
-      // setCommentList(commentList.sort((a, b) => a.like - b.like));
       setCommentList(_.orderBy(commentList, 'like', 'desc'));
     } else {
-      // setCommentList(commentList.sort((a, b) => -a.like + b.like));
       setCommentList(_.orderBy(commentList, 'ctime', 'desc'));
     }
+  };
+
+  const [content, setContent] = useState('');
+  const contentRef = useRef();
+  const handlePublish = () => {
+    setCommentList([...commentList, { user, content, ctime: dayjs().format('MM-DD HH:mm'), rpid: uuidv4(), like: 12 }]);
+    setContent('');
+    contentRef.current.focus();
   };
 
   return (
@@ -133,10 +141,18 @@ export default function DemoComments() {
           </div>
           <div className="reply-box-wrap">
             {/* 评论框 */}
-            <textarea className="reply-box-textarea" placeholder="发一条友善的评论" />
+            <textarea
+              className="reply-box-textarea"
+              placeholder="发一条友善的评论"
+              value={content}
+              ref={contentRef}
+              onChange={(e) => setContent(e.target.value)}
+            />
             {/* 发布按钮 */}
             <div className="reply-box-send">
-              <div className="send-text">发布</div>
+              <div className="send-text" onClick={handlePublish}>
+                发布
+              </div>
             </div>
           </div>
         </div>
