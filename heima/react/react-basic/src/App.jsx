@@ -8,12 +8,13 @@
 // import DemoContext from './demo/9-context';
 // import DemoUseEffect from './demo/10-useEffect';
 // import DemoHooks from './demo/11-hooks';
-import DemoRedux from './demo/12-redux';
+// import DemoRedux from './demo/12-redux';
+import DemoMeiTuan from './meituan';
 
 function App() {
   return (
     <div>
-      <DemoRedux />
+      <DemoMeiTuan />
     </div>
   );
 }
