@@ -9,14 +9,10 @@
 // import DemoUseEffect from './demo/10-useEffect';
 // import DemoHooks from './demo/11-hooks';
 // import DemoRedux from './demo/12-redux';
-import DemoMeiTuan from './meituan';
+// import DemoMeiTuan from './meituan';
 
 function App() {
-  return (
-    <div>
-      <DemoMeiTuan />
-    </div>
-  );
+  return <div>123</div>;
 }
 
 export default App;
