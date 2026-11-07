@@ -33,7 +33,6 @@ export default function DemoMeiTuan() {
       <div className="content-wrap">
         <div className="content">
           <Menu />
-
           <div className="list-content">
             <div className="goods-list">
               {/* 外卖商品列表 */}

@@ -1,50 +1,59 @@
-import classNames from 'classnames'
-import Count from '../Count'
-import './index.scss'
+import classNames from 'classnames';
+import Count from '../Count';
+import './index.scss';
+
+import { incrementCount, decrementCount, clearCart } from '../../../store/modules/foodStore';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const Cart = () => {
-  const cart = []
+  const { cartList } = useSelector((state) => state.food);
+  const total = cartList.reduce((a, b) => a + b.count * b.price, 0);
+
+  const dispatch = useDispatch();
+
+  const [visible, setVisible] = useState(false);
+
+  const handleShow = () => {
+    if (cartList.length === 0) return;
+    setVisible(true);
+  };
+
   return (
     <div className="cartContainer">
       {/* 遮罩层 添加visible类名可以显示出来 */}
-      <div
-        className={classNames('cartOverlay')}
-      />
+      <div className={classNames('cartOverlay', visible && 'visible')} onClick={() => setVisible(false)} />
       <div className="cart">
         {/* fill 添加fill类名可以切换购物车状态*/}
         {/* 购物车数量 */}
-        <div className={classNames('icon')}>
-          {true && <div className="cartCornerMark">{0}</div>}
+        <div className={classNames('icon')} onClick={handleShow}>
+          <div className="cartCornerMark">{cartList.length}</div>
         </div>
         {/* 购物车价格 */}
         <div className="main">
           <div className="price">
             <span className="payableAmount">
               <span className="payableAmountUnit">¥</span>
-              {0.00}
+              {total.toFixed(2)}
             </span>
           </div>
           <span className="text">预估另需配送费 ¥5</span>
         </div>
         {/* 结算 or 起送 */}
-        {false ? (
-          <div className="goToPreview">去结算</div>
-        ) : (
-          <div className="minFee">¥20起送</div>
-        )}
+        {cartList.length > 0 ? <div className="goToPreview">去结算</div> : <div className="minFee">¥20起送</div>}
       </div>
       {/* 添加visible类名 div会显示出来 */}
-      <div className={classNames('cartPanel')}>
+      <div className={classNames('cartPanel', visible && 'visible')}>
         <div className="header">
           <span className="text">购物车</span>
-          <span className="clearCart">
+          <span className="clearCart" onClick={() => dispatch(clearCart())}>
             清空购物车
           </span>
         </div>
 
         {/* 购物车列表 */}
         <div className="scrollArea">
-          {cart.map(item => {
+          {cartList.map((item) => {
             return (
               <div className="cartItem" key={item.id}>
                 <img className="shopPic" src={item.picture} alt="" />
@@ -60,15 +69,17 @@ const Cart = () => {
                 <div className="skuBtnWrapper btnGroup">
                   <Count
                     count={item.count}
+                    onPlus={() => dispatch(incrementCount({ id: item.id }))}
+                    onMinus={() => dispatch(decrementCount({ id: item.id }))}
                   />
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

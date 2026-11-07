@@ -18,6 +18,28 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+
+  .minus,
+  .plus {
+    width: 24px;
+    height: 24px;
+    background: #f7c120;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .minus::after {
+    content: '-';
+  }
+
+  .plus::after {
+    content: '+';
+  }
+
   .plus {
     margin-left: 12.5px;
     background-image: url(https://zqran.gitee.io/images/waimai/plus.png);

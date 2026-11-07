@@ -46,6 +46,22 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2px;
+
+    .plus {
+      width: 24px;
+      height: 24px;
+      background: #f7c120;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+
+      &::after {
+        content: '+';
+      }
+    }
   }
   .goods-detail {
     display: flex;

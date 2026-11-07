@@ -1,4 +1,4 @@
-import './index.scss'
+import './index.scss';
 
 const Count = ({ onPlus, onMinus, count }) => {
   return (
@@ -7,7 +7,7 @@ const Count = ({ onPlus, onMinus, count }) => {
       <span className="count">{count}</span>
       <span className="plus" onClick={onPlus}></span>
     </div>
-  )
-}
+  );
+};
 
-export default Count
+export default Count;
