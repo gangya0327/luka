@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const channelSlice = createSlice({
+const channelStore = createSlice({
   name: 'channel',
   initialState: {
     channelList: [],
@@ -13,7 +13,7 @@ const channelSlice = createSlice({
   },
 });
 
-const { setChannelList } = channelSlice.actions;
+const { setChannelList } = channelStore.actions;
 
 // 异步获取列表
 function fetchChannelList(ctrl) {
@@ -23,7 +23,7 @@ function fetchChannelList(ctrl) {
   };
 }
 
-const reducer = channelSlice.reducer;
+const reducer = channelStore.reducer;
 
 export { fetchChannelList };
 export default reducer;

@@ -1,7 +1,15 @@
 import { Link, Outlet } from 'react-router';
 import { Button } from 'antd-mobile';
+import { getBillList } from '@/store/modules/billStore';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Layout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBillList());
+  }, [dispatch]);
   return (
     <div>
       <h1>layout</h1>
