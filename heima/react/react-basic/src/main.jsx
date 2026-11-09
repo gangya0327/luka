@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router';
 import router from './router';
 
+import './theme.scss';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
