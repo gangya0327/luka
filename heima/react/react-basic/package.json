@@ -8,10 +8,11 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "serve": "json-server ./src/meituan/data.json --port 3004"
+    "serve": "json-server ./server/bill.json --port 3004"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.14.0",
+    "antd-mobile": "^5.43.0",
     "axios": "^1.21.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.23",

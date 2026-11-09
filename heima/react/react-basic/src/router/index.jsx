@@ -6,6 +6,7 @@ import About from '../page/About';
 import NotFound from '../page/NotFound';
 
 import { createBrowserRouter } from 'react-router';
+// import { createHashRouter } from 'react-router';
 
 const router = createBrowserRouter([
   {
