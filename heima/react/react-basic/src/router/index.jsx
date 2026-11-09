@@ -5,6 +5,10 @@ import Board from '../page/Board';
 import About from '../page/About';
 import NotFound from '../page/NotFound';
 
+import New from '@/page/New';
+import Month from '@/page/Month';
+import Year from '@/page/Year';
+
 import { createBrowserRouter } from 'react-router';
 // import { createHashRouter } from 'react-router';
 
@@ -15,10 +19,16 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Board /> },
       { path: 'about', element: <About /> },
+
+      { path: 'year', element: <Year /> },
+      { path: 'month', element: <Month /> },
     ],
   },
   { path: '/login', element: <Login /> },
   { path: '/article/:id/:name', element: <Article /> },
+
+  { path: '/new', element: <New /> },
+
   { path: '*', element: <NotFound /> },
 ]);
 
