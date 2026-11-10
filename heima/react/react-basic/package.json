@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & npm run server",
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "serve": "json-server ./server/bill.json --port 3004"
+    "server": "json-server ./server/bill.json --port 3004"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.14.0",
