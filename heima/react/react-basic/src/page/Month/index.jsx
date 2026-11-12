@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import _ from 'lodash';
 import './index.scss';
 
+import DailyBill from './components/DailyBill';
+
 const Month = () => {
   const [dateVisible, setDateVisible] = useState(false);
 
@@ -17,7 +19,7 @@ const Month = () => {
   }, [billList]);
 
   const currentMonthList = useMemo(() => monthGroup[currentDate] ?? [], [monthGroup, currentDate]);
-  // const [currentMonthList, setCurrentMonthList] = useState([]);
+
   const monthResult = useMemo(() => {
     const pay = currentMonthList.filter((i) => i.type === 'pay').reduce((cur, next) => cur + next.money, 0);
     const income = currentMonthList.filter((i) => i.type === 'income').reduce((cur, next) => cur + next.money, 0);
@@ -27,16 +29,15 @@ const Month = () => {
   const handleConfirm = (date) => {
     setDateVisible(false);
     const formatDate = dayjs(date).format('YYYY年丨MM月');
-    // setCurrentMonthList(monthGroup[formatDate]);
     setCurrentDate(formatDate);
   };
 
-  // useEffect(() => {
-  //   const nowDate = dayjs(new Date()).format('YYYY年丨MM月');
-  //   if (monthGroup[nowDate]) {
-  //     setCurrentMonthList(monthGroup[nowDate]);
-  //   }
-  // }, [monthGroup]);
+  // 当前月按日分组
+  const dayGroup = useMemo(() => {
+    const groupData = _.groupBy(currentMonthList, (item) => dayjs(item.date).format('YYYY年丨MM月DD日'));
+    const keys = Object.keys(groupData);
+    return { keys, groupData };
+  }, [currentMonthList]);
 
   return (
     <div className="monthlyBill">
@@ -76,6 +77,11 @@ const Month = () => {
             onCancel={() => setDateVisible(false)}
           />
         </div>
+
+        {/* 单日列表统计 */}
+        {dayGroup.keys.map((key) => {
+          return <DailyBill key={key} date={key} billList={dayGroup.groupData[key]} />;
+        })}
       </div>
     </div>
   );
