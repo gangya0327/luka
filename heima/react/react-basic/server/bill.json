@@ -5,203 +5,246 @@
       "money": -26.5,
       "date": "2026-09-02 12:18:30",
       "useFor": "food",
-      "id": 1
+      "id": "1"
     },
     {
       "type": "pay",
       "money": -18,
       "date": "2026-09-02 19:42:05",
       "useFor": "drinks",
-      "id": 2
+      "id": "2"
     },
     {
       "type": "income",
       "money": 12800,
       "date": "2026-09-05 09:00:00",
       "useFor": "salary",
-      "id": 3
+      "id": "3"
     },
     {
       "type": "pay",
       "money": -32,
       "date": "2026-09-05 18:26:41",
       "useFor": "taxi",
-      "id": 4
+      "id": "4"
     },
     {
       "type": "pay",
       "money": -299,
       "date": "2026-09-08 15:20:37",
       "useFor": "clothes",
-      "id": 5
+      "id": "5"
     },
     {
       "type": "pay",
       "money": -26,
       "date": "2026-09-08 20:11:09",
       "useFor": "dessert",
-      "id": 6
+      "id": "6"
     },
     {
       "type": "pay",
       "money": -42,
       "date": "2026-09-15 12:36:18",
       "useFor": "food",
-      "id": 7
+      "id": "7"
     },
     {
       "type": "pay",
       "money": -120,
       "date": "2026-09-21 07:58:22",
       "useFor": "longdistance",
-      "id": 8
+      "id": "8"
     },
     {
       "type": "pay",
       "money": -88,
       "date": "2026-09-21 20:05:44",
       "useFor": "game",
-      "id": 9
+      "id": "9"
     },
     {
       "type": "pay",
       "money": -59,
       "date": "2026-09-21 21:30:12",
       "useFor": "book",
-      "id": 10
+      "id": "10"
     },
     {
       "type": "pay",
       "money": -38,
       "date": "2026-10-03 12:05:11",
       "useFor": "food",
-      "id": 11
+      "id": "11"
     },
     {
       "type": "pay",
       "money": -22,
       "date": "2026-10-03 18:40:27",
       "useFor": "drinks",
-      "id": 12
+      "id": "12"
     },
     {
       "type": "pay",
       "money": -15.8,
       "date": "2026-10-03 21:12:44",
       "useFor": "dessert",
-      "id": 13
+      "id": "13"
     },
     {
       "type": "income",
       "money": 12800,
       "date": "2026-10-08 09:00:00",
       "useFor": "salary",
-      "id": 14
+      "id": "14"
     },
     {
       "type": "pay",
       "money": -45,
       "date": "2026-10-08 19:15:33",
       "useFor": "taxi",
-      "id": 15
+      "id": "15"
     },
     {
       "type": "pay",
       "money": -168,
       "date": "2026-10-14 14:02:56",
       "useFor": "home",
-      "id": 16
+      "id": "16"
     },
     {
       "type": "pay",
       "money": -88,
       "date": "2026-10-14 20:33:10",
       "useFor": "book",
-      "id": 17
+      "id": "17"
     },
     {
       "type": "pay",
       "money": -200,
       "date": "2026-10-22 08:40:26",
       "useFor": "bodybuilding",
-      "id": 18
+      "id": "18"
     },
     {
       "type": "pay",
       "money": -30,
       "date": "2026-10-22 21:50:03",
       "useFor": "audio",
-      "id": 19
+      "id": "19"
     },
     {
       "type": "pay",
       "money": -35.6,
       "date": "2026-11-04 13:05:12",
       "useFor": "food",
-      "id": 20
+      "id": "20"
     },
     {
       "type": "pay",
       "money": -16,
       "date": "2026-11-04 15:22:38",
       "useFor": "drinks",
-      "id": 21
+      "id": "21"
     },
     {
       "type": "pay",
       "money": -239,
       "date": "2026-11-04 19:58:41",
       "useFor": "clothes",
-      "id": 22
+      "id": "22"
     },
     {
       "type": "income",
       "money": 12800,
       "date": "2026-11-05 09:00:00",
       "useFor": "salary",
-      "id": 23
+      "id": "23"
     },
     {
       "type": "pay",
       "money": -150,
       "date": "2026-11-05 10:26:51",
       "useFor": "community",
-      "id": 24
+      "id": "24"
     },
     {
       "type": "pay",
       "money": -28,
       "date": "2026-11-09 08:12:30",
       "useFor": "taxi",
-      "id": 25
+      "id": "25"
     },
     {
       "type": "pay",
       "money": -66,
       "date": "2026-11-09 20:44:19",
       "useFor": "game",
-      "id": 26
+      "id": "26"
     },
     {
       "type": "pay",
       "money": -52,
       "date": "2026-11-15 12:30:05",
       "useFor": "food",
-      "id": 27
+      "id": "27"
     },
     {
       "type": "pay",
       "money": -199,
       "date": "2026-11-15 16:12:47",
       "useFor": "promote",
-      "id": 28
+      "id": "28"
     },
     {
       "type": "income",
       "money": 320,
       "date": "2026-11-15 21:05:36",
       "useFor": "financial",
-      "id": 29
+      "id": "29"
+    },
+    {
+      "type": "pay",
+      "money": -120,
+      "date": "2026-11-16",
+      "useFor": "drinks",
+      "id": "iVe9dIeg1G8"
+    },
+    {
+      "type": "income",
+      "money": 30,
+      "date": "2026-11-16",
+      "useFor": "bonus",
+      "id": "Uxx8AKgW9UA"
+    },
+    {
+      "type": "pay",
+      "money": -30,
+      "date": "2026-11-16",
+      "useFor": "audio",
+      "id": "XvkxoiH1gOs"
+    },
+    {
+      "type": "pay",
+      "money": -22,
+      "date": "2026-11-14",
+      "useFor": "audio",
+      "id": "v9E35e1Lvfk"
+    },
+    {
+      "type": "pay",
+      "money": 20,
+      "date": "2026-11-15",
+      "useFor": "dessert",
+      "id": "BEZ4odv_rpY"
+    },
+    {
+      "type": "pay",
+      "money": -230,
+      "date": "2026-11-13",
+      "useFor": "home",
+      "id": "CNoYKdbklI4"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
