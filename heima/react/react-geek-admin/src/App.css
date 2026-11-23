@@ -1,29 +1,8 @@
 .app {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
   padding: 24px;
-  text-align: center;
 }
 
 .app__logo {
-  width: 72px;
-  height: 72px;
-}
-
-.app__title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1f2329;
-}
-
-.app__desc {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #8a8f99;
+  width: 64px;
+  height: 64px;
 }
