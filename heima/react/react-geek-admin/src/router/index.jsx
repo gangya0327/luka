@@ -3,6 +3,10 @@ import Login from '@/pages/Login';
 
 import { AuthRoute } from '@/components/AuthRoute';
 
+import Home from '@/pages/Home';
+import Publish from '@/pages/Publish';
+import Article from '@/pages/Article';
+
 import { createBrowserRouter } from 'react-router';
 
 const router = createBrowserRouter([
@@ -13,6 +17,20 @@ const router = createBrowserRouter([
         <Layout />
       </AuthRoute>
     ),
+    children: [
+      {
+        path: 'home',
+        element: <Home />,
+      },
+      {
+        path: 'article',
+        element: <Article />,
+      },
+      {
+        path: 'publish',
+        element: <Publish />,
+      },
+    ],
   },
   {
     path: '/login',
