@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "npm run dev & npm run server",
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
     "format": "prettier . --write",
-    "format:check": "prettier . --check",
     "server": "json-server ./server/mock.json --port 3004"
   },
   "dependencies": {
