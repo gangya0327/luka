@@ -12,20 +12,24 @@ const userStore = createSlice({
       state.token = action.payload;
       _setToken(action.payload);
     },
+    removeToken(state) {
+      state.token = '';
+      _setToken('');
+    },
   },
 });
 
-const { setToken } = userStore.actions;
+const { setToken, removeToken } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
 const fetchToken = (loginForm) => {
   return async (dispatch) => {
-    const res = await request.get('/authorize', loginForm);
-    dispatch(setToken(res.data));
+    const res = await request.post('/authorize', loginForm);
+    dispatch(setToken(res.code));
   };
 };
 
-export { setToken, fetchToken };
+export { setToken, removeToken, fetchToken };
 
 export default userReducer;

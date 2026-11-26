@@ -1,37 +1,60 @@
 import { Layout, Menu, Popconfirm } from 'antd';
 import { HomeOutlined, DiffOutlined, EditOutlined, LogoutOutlined } from '@ant-design/icons';
 import './index.scss';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate, useLocation } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
+import { userInfoQuery } from '@/api/user';
+import { removeToken } from '@/store/modules/user';
+import { useDispatch } from 'react-redux';
 
 const { Header, Sider } = Layout;
 
 const items = [
   {
     label: '首页',
-    key: '1',
+    key: '/',
     icon: <HomeOutlined />,
   },
   {
     label: '文章管理',
-    key: '2',
+    key: '/article',
     icon: <DiffOutlined />,
   },
   {
     label: '创建文章',
-    key: '3',
+    key: '/publish',
     icon: <EditOutlined />,
   },
 ];
 
 const GeekLayout = () => {
+  const navigate = useNavigate();
+
+  const handleMenuClick = (route) => {
+    const path = route.key;
+    navigate(path);
+  };
+
+  const location = useLocation();
+  const selectedKey = location.pathname;
+
+  const { data: userInfo = {} } = useQuery(userInfoQuery);
+  const name = userInfo.name;
+
+  const dispatch = useDispatch();
+  const handleConfirm = () => {
+    dispatch(removeToken());
+    navigate('/login');
+  };
+
   return (
     <Layout>
       <Header className="header">
         <div className="logo" />
         <div className="user-info">
-          <span className="user-name">柴柴老师</span>
+          <span className="user-name">{name}</span>
           <span className="user-logout">
-            <Popconfirm title="是否确认退出?" okText="退出" cancelText="取消">
+            <Popconfirm title="是否确认退出?" okText="退出" cancelText="取消" onConfirm={handleConfirm}>
               <LogoutOutlined /> 退出
             </Popconfirm>
           </span>
@@ -42,7 +65,8 @@ const GeekLayout = () => {
           <Menu
             mode="inline"
             theme="dark"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={selectedKey}
+            onClick={handleMenuClick}
             items={items}
             style={{ height: '100%', borderRight: 0 }}
           ></Menu>

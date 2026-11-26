@@ -1,22 +1,33 @@
 {
-  "authorize": {
-    "data": "123456"
+  "authorize": [
+    {
+      "mobile": "18768105813",
+      "code": "123",
+      "id": "6dbd0zPy5jM",
+      "data": "123456"
+    },
+    {
+      "mobile": "18768105813",
+      "code": "123",
+      "id": "aWd2dsGySUI"
+    },
+    {
+      "mobile": "18768105813",
+      "code": "12344",
+      "id": "pFah3HuPE_g"
+    },
+    {
+      "mobile": "18768105813",
+      "code": "4444",
+      "id": "hQjrUkY1XX4"
+    }
+  ],
+  "userInfo": {
+    "data": {
+      "id": "7090",
+      "name": "raven",
+      "avatar": "https://api.dicebear.com/9.x/bottts/png?seed=chaichai&size=200&backgroundColor=b6e3f4"
+    }
   },
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "peter"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "peter"
-  }
+  "$schema": "./node_modules/json-server/schema.json"
 }
