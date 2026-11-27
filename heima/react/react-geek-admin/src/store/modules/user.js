@@ -25,8 +25,12 @@ const userReducer = userStore.reducer;
 
 const fetchToken = (loginForm) => {
   return async (dispatch) => {
-    const res = await request.post('/authorize', loginForm);
-    dispatch(setToken(res.code));
+    try {
+      const res = await request.post('/authorize', loginForm);
+      dispatch(setToken(res.data.token));
+    } catch (e) {
+      throw new Error(e.response?.data?.message ?? '登录失败', { cause: e });
+    }
   };
 };
 

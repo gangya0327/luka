@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { userInfoQuery } from '@/api/user';
 import { removeToken } from '@/store/modules/user';
 import { useDispatch } from 'react-redux';
+import { useQueryClient } from '@tanstack/react-query';
 
 const { Header, Sider } = Layout;
 
@@ -42,8 +43,11 @@ const GeekLayout = () => {
   const name = userInfo.name;
 
   const dispatch = useDispatch();
+  const queryClient = useQueryClient();
+
   const handleConfirm = () => {
     dispatch(removeToken());
+    queryClient.removeQueries({ queryKey: ['user'] });
     navigate('/login');
   };
 

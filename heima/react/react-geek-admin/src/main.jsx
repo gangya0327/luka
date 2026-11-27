@@ -15,13 +15,24 @@ const queryClient = new QueryClient({
   },
 });
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <RouterProvider router={router}></RouterProvider>
-      </Provider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </StrictMode>,
-);
+async function bootstrap() {
+  if (import.meta.env.DEV) {
+    const { network } = await import('virtual:msw');
+    const { handlers } = await import('../server/handlers');
+    network.configure({ handlers });
+    await network.enable();
+  }
+
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <RouterProvider router={router}></RouterProvider>
+        </Provider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </StrictMode>,
+  );
+}
+
+bootstrap();

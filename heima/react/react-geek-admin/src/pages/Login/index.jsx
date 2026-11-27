@@ -10,10 +10,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
-    console.log('Success:', values);
-    await dispatch(fetchToken(values));
-    navigate('/');
-    message.success('登录成功');
+    try {
+      await dispatch(fetchToken(values));
+      navigate('/');
+      message.success('登录成功');
+    } catch (e) {
+      message.error(e.message);
+    }
   };
 
   return (
