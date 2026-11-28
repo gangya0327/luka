@@ -1,0 +1,91 @@
+.rich-editor {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+
+  &--loading {
+    min-height: 360px;
+  }
+
+  &:focus-within {
+    border-color: #1677ff;
+    box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+  }
+
+  &__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 8px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+  }
+
+  &__content {
+    .ProseMirror {
+      min-height: 320px;
+      padding: 12px 16px;
+      outline: none; // 焦点指示放在外层容器上，见 :focus-within
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(0, 0, 0, 0.88);
+
+      // 段落间距：ProseMirror 里每个块是一个独立 <p>，没有默认间距
+      > * + * {
+        margin-top: 0.6em;
+      }
+
+      ul,
+      ol {
+        padding-left: 1.4em;
+      }
+
+      blockquote {
+        margin-left: 0;
+        padding-left: 12px;
+        border-left: 3px solid #d9d9d9;
+        color: rgba(0, 0, 0, 0.65);
+      }
+
+      code {
+        padding: 2px 5px;
+        border-radius: 3px;
+        background: #f5f5f5;
+        font-size: 0.9em;
+      }
+
+      pre {
+        padding: 12px;
+        border-radius: 6px;
+        background: #f5f5f5;
+        overflow-x: auto;
+
+        code {
+          padding: 0;
+          background: none;
+        }
+      }
+
+      // antd 的 reset 会清掉标题字号，必须显式给
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+
+      p.is-editor-empty:first-child::before {
+        content: '请输入文章内容…';
+        color: rgba(0, 0, 0, 0.25);
+        float: left;
+        height: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}
